@@ -39,9 +39,11 @@ function Index() {
           </div>
           <div className="rise-in flex w-full flex-col items-center self-center lg:w-1/2 lg:items-start">
             <h1 className="text-center text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-left xl:text-6xl">
-              Building User-Focused Products With{" "}
-              <span className="text-muted-foreground">Code And Design.</span>
+              Pelagia Svare
             </h1>
+            <h2 className="mt-2 text-xl font-semibold text-primary sm:text-2xl text-center lg:text-left">
+              Software Developer & Product Designer
+            </h2>
             <p className="my-6 max-w-lg text-center text-base font-medium text-muted-foreground lg:text-left">
               I am a software developer skilled in JavaScript and Python, and a Scratch educator who
               loves turning ideas into practical web and mobile solutions. Explore my latest
@@ -56,12 +58,12 @@ function Index() {
               >
                 Resume <ExternalLink size={18} />
               </a>
-              <a
-                href="mailto:pelagiasvare2002@gmail.com"
-                className="text-lg font-medium underline underline-offset-4"
+              <Link
+                to="/contact"
+                className="text-lg font-medium underline underline-offset-4 hover:text-primary transition-colors"
               >
                 Contact
-              </a>
+              </Link>
             </div>
             <Link
               to="/projects"

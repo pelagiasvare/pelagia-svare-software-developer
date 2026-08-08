@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import profilePic from "@/assets/profile-pic.jpg";
+import profilePic from "@/assets/profile-pic.png";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
+import { Award, ExternalLink, FileText, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -9,17 +10,49 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Biography, skills, experience and education of Pelagia Svare, a software developer and product designer from Harare, Zimbabwe.",
+          "Biography, skills, experience, education, and verified certificates of Pelagia Svare, a software developer from Bulawayo, Zimbabwe.",
       },
       { property: "og:title", content: "About Pelagia Svare" },
       {
         property: "og:description",
-        content: "Passion fuels purpose — skills, experience and education.",
+        content: "Passion fuels purpose — skills, experience, education, and verified certifications.",
       },
     ],
   }),
   component: About,
 });
+
+const certificates = [
+  {
+    title: "Crash Course on Python",
+    issuer: "Google & Coursera",
+    date: "July 1, 2026",
+    badge: "Google Verified",
+    summary:
+      "Authorized by Google. Mastered Python programming structure, object-oriented concepts, automated scripting, and data manipulation.",
+    verifyUrl: "https://coursera.org/verify/NK7M7YXZE6O5",
+    pdfUrl: "/certificate-google-python.pdf",
+  },
+  {
+    title: "Systems Engineering",
+    issuer: "MathWorks & Coursera",
+    date: "July 13, 2026",
+    badge: "MathWorks Verified",
+    summary:
+      "Authorized by MathWorks. Comprehensive training in systems modeling, lifecycle design, architecture, and analytical engineering problem-solving.",
+    verifyUrl: "https://coursera.org/verify/B0ESDYNR3KQF",
+    pdfUrl: "/certificate-mathworks-systems-engineering.pdf",
+  },
+  {
+    title: "Technology Bootcamp & Referral",
+    issuer: "Uncommon.org",
+    date: "July 28, 2026",
+    badge: "Official Recommendation",
+    summary:
+      "Official recommendation by Innovation Hub Manager Gracious Tshabangu certifying expertise in React, Vite, Next.js, Node.js, Express, Firebase, Supabase, and Prompt Engineering.",
+    pdfUrl: "/uncommon-org-recommendation-letter.pdf",
+  },
+];
 
 const skills = [
   "JavaScript",
@@ -73,31 +106,25 @@ const education = [
       "Technology bootcamp covering front-end and back-end React frameworks, Vite, Next.js, Node.js & Express, Firebase, Supabase, prompt engineering and professional communication.",
   },
   {
-    type: "Front-End Development Certification",
+    type: "Crash Course on Python Certification",
     time: "2026",
-    place: "freeCodeCamp",
+    place: "Google & Coursera",
     detail:
-      "Core front-end engineering: JavaScript fundamentals, React component architecture and accessible interface development.",
+      "Verified course completion in Python programming fundamentals, data structures, automation, and backend script building.",
   },
   {
-    type: "Responsive Web Design Certification",
+    type: "Systems Engineering Certification",
     time: "2026",
-    place: "freeCodeCamp",
+    place: "MathWorks & Coursera",
     detail:
-      "Semantic HTML5, modern CSS layout and responsive, accessible design across all screen sizes.",
+      "Verified course completion in systems engineering principles, architecture design, and system lifecycle modeling.",
   },
   {
-    type: "Product Design & Design Thinking Certifications",
+    type: "Front-End Development & UI/UX Training",
     time: "2026",
-    place: "Uxcel",
+    place: "Uncommon.org & Uxcel",
     detail:
-      "Product design, design thinking and UI/UX design — user research, wireframing, prototyping and usability.",
-  },
-  {
-    type: "Python for Everybody",
-    time: "2026",
-    place: "Coursera",
-    detail: "Python programming fundamentals, data structures and working with data.",
+      "Core front-end engineering: JavaScript fundamentals, React component architecture, user research, wireframing, and accessible interface development.",
   },
 ];
 
@@ -113,7 +140,7 @@ function About() {
           <h2 className="mb-4 text-lg font-bold uppercase text-muted-foreground">Biography</h2>
           <p className="font-medium">
             Hi, I am Pelagia Svare, a software developer skilled in JavaScript and Python, building
-            user-focused web and application solutions from Harare, Zimbabwe.
+            user-focused web and application solutions from Bulawayo, Zimbabwe.
           </p>
           <p className="my-4 font-medium">
             I am also an experienced Scratch educator and mentor, teaching young learners
@@ -125,14 +152,14 @@ function About() {
           </p>
         </div>
 
-        <div className="relative col-span-1 h-max rounded-2xl border-2 border-solid border-border bg-card p-8 shadow-[10px_10px_0_0_var(--color-secondary)] lg:col-span-3">
+        <div className="relative col-span-1 h-max rounded-2xl border-2 border-solid border-border bg-card p-6 shadow-[10px_10px_0_0_var(--color-secondary)] lg:col-span-3">
           <img
             src={profilePic}
             alt="Portrait illustration of Pelagia Svare"
             width={900}
             height={1100}
             loading="lazy"
-            className="h-auto w-full rounded-2xl"
+            className="h-auto w-full rounded-xl object-cover"
           />
         </div>
 
@@ -153,6 +180,60 @@ function About() {
           ))}
         </div>
       </div>
+
+      {/* Certifications & Official Recommendations */}
+      <section className="mt-24">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-secondary-foreground mb-3">
+            <Award size={18} /> Verified Credentials
+          </span>
+          <h2 className="text-4xl font-bold sm:text-6xl">Certificates & Recommendations</h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {certificates.map((cert) => (
+            <div
+              key={cert.title}
+              className="relative flex flex-col justify-between rounded-2xl border-2 border-border bg-card p-6 shadow-[8px_8px_0_0_var(--color-secondary)] transition-all hover:-translate-y-1"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-secondary/50 px-2.5 py-1 text-xs font-semibold text-secondary-foreground">
+                    <CheckCircle2 size={14} /> {cert.badge}
+                  </span>
+                  <span className="text-xs font-medium text-muted-foreground">{cert.date}</span>
+                </div>
+                <h3 className="text-xl font-bold text-foreground">{cert.title}</h3>
+                <p className="text-sm font-semibold text-primary mb-3">{cert.issuer}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{cert.summary}</p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-border/50">
+                {cert.verifyUrl && (
+                  <a
+                    href={cert.verifyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-3.5 py-1.5 text-xs font-semibold text-secondary-foreground transition-colors hover:opacity-90"
+                  >
+                    Verify Certificate <ExternalLink size={14} />
+                  </a>
+                )}
+                {cert.pdfUrl && (
+                  <a
+                    href={cert.pdfUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+                  >
+                    View Document PDF <FileText size={14} />
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <section className="mt-24">
         <h2 className="mb-12 w-full text-center text-4xl font-bold sm:text-6xl">Skills</h2>

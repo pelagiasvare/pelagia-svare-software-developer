@@ -5,8 +5,6 @@ import wattleCompany from "@/assets/project-wattle-company.png";
 import chickenInn from "@/assets/project-chicken-inn.png";
 import contactForm from "@/assets/project-contact-form.png";
 import todoList from "@/assets/project-todo-list.png";
-import agency from "@/assets/project-agency.jpg";
-import marketing from "@/assets/project-marketing.jpg";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -68,22 +66,6 @@ const others = [
       "An intuitive task management dashboard with metric counters for Total Tasks, Completed, and Failed tasks, rapid task addition, and clean state feedback.",
     img: todoList,
     link: "https://todolist-app.vercel.app/",
-  },
-  {
-    title: "Personal Portfolio Website",
-    type: "Web Development",
-    summary:
-      "Personal software developer portfolio showcasing full-stack capabilities, design projects, and educational mentorship work.",
-    img: agency,
-    link: "https://pelagiaportfolio.vercel.app/",
-  },
-  {
-    title: "Scratch Coding Curriculum Projects",
-    type: "Education & Mentorship",
-    summary:
-      "Interactive Scratch projects and teaching materials designed for youth coding education, computational thinking, and digital literacy.",
-    img: marketing,
-    link: "#",
   },
 ];
 
