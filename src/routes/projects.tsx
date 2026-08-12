@@ -3,6 +3,7 @@ import { Github, ExternalLink } from "lucide-react";
 import foodieland from "@/assets/project-foodieland.png";
 import wattleCompany from "@/assets/project-wattle-company.png";
 import chickenInn from "@/assets/project-chicken-inn.png";
+import bakersInn from "@/assets/project-bakers-inn.png";
 import contactForm from "@/assets/project-contact-form.png";
 import todoList from "@/assets/project-todo-list.png";
 
@@ -13,7 +14,7 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Featured software development and product design projects by Pelagia Svare, including Foodieland, The Wattle Company, Chicken Inn, React Contact Form, and To-Do App.",
+          "Featured software development and product design projects by Pelagia Svare, including Foodieland, The Wattle Company, Chicken Inn, Baker's Inn, React Contact Form, and To-Do App.",
       },
       { property: "og:title", content: "Projects — Pelagia Svare" },
       {
@@ -35,6 +36,14 @@ const featured = {
 };
 
 const others = [
+  {
+    title: "Baker's Inn — Fresh Bread & Bakery Website",
+    type: "Bakery Web Platform",
+    summary:
+      "A warm, appetizing web experience for Baker's Inn showcasing fresh bread, pies, scones and doughnuts, with product ranges, recipes, kid's corner games, factory tour and donation requests.",
+    img: bakersInn,
+    link: "https://bakers-inn-react-js.vercel.app/",
+  },
   {
     title: "The Wattle Company",
     type: "Corporate Website",
