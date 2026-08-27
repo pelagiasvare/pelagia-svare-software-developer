@@ -1,24 +1,38 @@
-# Mae's Awesome Portfolio
+# Pelagia Svare — Software Developer & Product Designer
 
-https://next-portfolio-murex-theta.vercel.app/ craete for mae a portfoilio that looks like that
+A modern, responsive portfolio built with **TanStack Router, React, Vite, and Tailwind CSS**, deployed on Vercel.
 
-This project was built with [Lovable](https://lovable.dev).
+## Features
 
-## Build with Lovable
+- Responsive, mobile-first layout with a custom Montserrat design system
+- Project showcase, resume, and certificates
+- Clean animations and accessible markup
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ce86086f-18f4-48df-a268-781a83b9da54).
+## Live Site
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+[View the live portfolio](https://pelagia-svare-software-developer.vercel.app)
+
+## Tech Stack
+
+- **Framework:** TanStack Start (React)
+- **Build:** Vite + TypeScript
+- **Styling:** Tailwind CSS v4
+- **Deployment:** Vercel
 
 ## Development
 
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
 ```sh
-git clone <this-repository-url>
+git clone <repository-url>
 cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+## Production build
+
+```sh
+npm run build
+npm run preview
+```
+
+© 2026 Pelagia Svare. All Rights Reserved.
