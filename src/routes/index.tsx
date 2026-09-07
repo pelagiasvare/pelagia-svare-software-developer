@@ -45,19 +45,15 @@ function Index() {
               Software Developer & Product Designer
             </h2>
             <p className="my-6 max-w-lg text-center text-base font-medium text-muted-foreground lg:text-left">
-              I am a software developer skilled in JavaScript and Python, and a Scratch educator who
-              loves turning ideas into practical web and mobile solutions. Explore my latest
-              projects below.
+              I am a software developer skilled in JavaScript, Python and C#, building user-focused web and application solutions, and an experienced Scratch educator and mentor. Explore my latest projects below.
             </p>
             <div className="flex items-center gap-6 self-center lg:self-start">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="/resume"
                 className="flex items-center gap-2 rounded-lg border-2 border-secondary bg-secondary px-6 py-2.5 text-lg font-semibold text-secondary-foreground transition-colors hover:bg-background hover:text-foreground"
               >
                 Resume <ExternalLink size={18} />
-              </a>
+              </Link>
               <Link
                 to="/contact"
                 className="text-lg font-medium underline underline-offset-4 hover:text-primary transition-colors"

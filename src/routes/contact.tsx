@@ -83,8 +83,8 @@ function Contact() {
                 </div>
                 <div>
                   <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phone</h3>
-                  <a href="tel:+263715751664" className="text-base font-bold text-foreground hover:text-primary transition-colors">
-                    +263 71 575 1664
+                  <a href="tel:+263781648526" className="text-base font-bold text-foreground hover:text-primary transition-colors">
+                    +263 78 164 8526
                   </a>
                 </div>
               </div>

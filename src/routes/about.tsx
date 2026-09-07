@@ -1,7 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import profilePic from "@/assets/profile-pic.png";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
-import { Award, ExternalLink, FileText, CheckCircle2 } from "lucide-react";
+import { Award, ExternalLink, FileText, CheckCircle2, UserCheck, Briefcase, GraduationCap, Sparkles } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -10,17 +10,32 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Biography, skills, experience, education, and verified certificates of Pelagia Svare, a software developer from Bulawayo, Zimbabwe.",
+          "Biography, core skills, work experience, education, verified certificates, and references of Pelagia Svare, a software developer from Bulawayo, Zimbabwe.",
       },
       { property: "og:title", content: "About Pelagia Svare" },
       {
         property: "og:description",
-        content: "Passion fuels purpose — skills, experience, education, and verified certifications.",
+        content: "Passion fuels purpose — skills, experience, education, verified certifications, and references.",
       },
     ],
   }),
   component: About,
 });
+
+const profileHighlights = [
+  {
+    title: "Home Services Mobile Platform",
+    context: "Product Design Training",
+    description:
+      "Built a home services platform connecting homeowners with trusted service providers. Conducted comprehensive user research, created wireframes and prototypes, and designed user-friendly workflows.",
+  },
+  {
+    title: "Accessible Responsive Portfolio",
+    context: "Software Development Training",
+    description:
+      "Built a responsive portfolio website during Software Development training, focusing on web accessibility, responsive design across all devices, and clean, user-friendly interfaces.",
+  },
+];
 
 const certificates = [
   {
@@ -49,61 +64,81 @@ const certificates = [
     date: "July 28, 2026",
     badge: "Official Recommendation",
     summary:
-      "Official recommendation by Innovation Hub Manager Gracious Tshabangu certifying expertise in React, Vite, Next.js, Node.js, Express, Firebase, Supabase, and Prompt Engineering.",
+      "Official recommendation certifying expertise in React, Vite, Next.js, Node.js, Express, Firebase, Supabase, C#, and Prompt Engineering.",
     pdfUrl: "/uncommon-org-recommendation-letter.pdf",
   },
 ];
 
 const skills = [
+  "C#",
+  ".NET",
+  "Entity Framework",
   "JavaScript",
   "TypeScript",
-  "HTML5",
-  "CSS3",
-  "React",
+  "Python",
+  "HTML",
+  "CSS",
   "Node.js",
-  "Next.js",
+  "React",
+  "Git",
+  "GitHub",
+  "IT Support",
+  "Scratch Programming",
   "Vite",
   "Styled Components",
+  "Vercel",
+  "Prompt Engineering",
   "Firebase",
   "Supabase",
-  "Python",
-  "Git & GitHub",
-  "Scratch",
+  "Next.js",
   "Figma",
-  "Prompt Engineering",
 ];
 
 const experience = [
   {
     position: "Software Developer",
     company: "Uncommon.org",
-    time: "2026-Present",
+    time: "2026 - Present",
     address: "Harare, Zimbabwe",
     work: "Contributed to development tasks and supported ongoing projects while teaching coding to school students.",
   },
   {
     position: "Scratch Coordinator",
     company: "Uncommon.org",
-    time: "2026-Present",
+    time: "2026 - Present",
     address: "Harare, Zimbabwe",
-    work: "Teach Scratch programming to students, guiding learners through coding projects and computational thinking while supporting creativity, problem-solving and digital literacy.",
+    work: "Teach Scratch programming, guide learners through coding projects and computational thinking, and support creativity, problem-solving and digital literacy.",
   },
   {
     position: "Product Designer",
     company: "Uncommon.org",
     time: "2026",
     address: "Harare, Zimbabwe",
-    work: "Designed and built a mobile app connecting homeowners with trusted service providers. Conducted user research, created wireframes and prototypes, defined product features and collaborated on development.",
+    work: "Designed and built a mobile app connecting homeowners with trusted service providers. Conducted user research, created wireframes and prototypes, defined product features, and collaborated on development.",
   },
 ];
 
 const education = [
   {
-    type: "Software Development Stack Specialisation",
+    type: "Responsive Website Design Certification",
+    time: "2026",
+    place: "FreeCodeCamp",
+    detail:
+      "Comprehensive certification in responsive web development, modern CSS flexbox & grid layouts, and accessible UI engineering.",
+  },
+  {
+    type: "UX / Product Design Learning",
+    time: "2026",
+    place: "Uxcel",
+    detail:
+      "Practical design training focused on interaction design, user heuristics, wireframing, and creating seamless user journeys.",
+  },
+  {
+    type: "Information Technology & Software Development",
     time: "2026",
     place: "Uncommon.org",
     detail:
-      "Technology bootcamp covering front-end and back-end React frameworks, Vite, Next.js, Node.js & Express, Firebase, Supabase, prompt engineering and professional communication.",
+      "Intensive software engineering training covering full-stack web development, C#, .NET, React frameworks, Node.js, API integrations, and collaborative workflows.",
   },
   {
     type: "Crash Course on Python Certification",
@@ -119,12 +154,15 @@ const education = [
     detail:
       "Verified course completion in systems engineering principles, architecture design, and system lifecycle modeling.",
   },
+];
+
+const references = [
   {
-    type: "Front-End Development & UI/UX Training",
-    time: "2026",
-    place: "Uncommon.org & Uxcel",
-    detail:
-      "Core front-end engineering: JavaScript fundamentals, React component architecture, user research, wireframing, and accessible interface development.",
+    name: "Tonderai Kawere",
+    role: "Software Developer",
+    company: "Uncommon.org",
+    phone: "078 252 8050",
+    email: "tonderai@uncommon.org",
   },
 ];
 
@@ -139,17 +177,33 @@ function About() {
         <div className="col-span-1 flex flex-col items-start justify-start lg:col-span-3">
           <h2 className="mb-4 text-lg font-bold uppercase text-muted-foreground">Biography</h2>
           <p className="font-medium">
-            Hi, I am Pelagia Svare, a software developer skilled in JavaScript and Python, building
+            Hi, I am Pelagia Svare, a software developer skilled in JavaScript, Python and C#, building
             user-focused web and application solutions from Bulawayo, Zimbabwe.
           </p>
           <p className="my-4 font-medium">
-            I am also an experienced Scratch educator and mentor, teaching young learners
-            computational thinking, creativity and problem solving through code.
+            I am also an experienced Scratch educator and mentor, passionate about software development
+            and delivering impactful digital products that inspire learners and solve real-world problems.
           </p>
           <p className="font-medium">
-            Whether I am designing a mobile app or shipping a responsive web interface, I care about
-            accessibility, clean code and delivering impactful digital products.
+            Whether I am engineering a fullstack web application, designing intuitive workflows, or teaching computational thinking, I care deeply about accessibility, clean architecture and high-impact digital solutions.
           </p>
+          
+          <div className="mt-6 flex flex-wrap items-center gap-4">
+            <Link
+              to="/resume"
+              className="inline-flex items-center gap-2 rounded-xl bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-sm transition-all hover:opacity-90"
+            >
+              <FileText size={16} /> View Online Resume
+            </Link>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+            >
+              Download PDF <ExternalLink size={14} />
+            </a>
+          </div>
         </div>
 
         <div className="relative col-span-1 h-max rounded-2xl border-2 border-solid border-border bg-card p-6 shadow-[10px_10px_0_0_var(--color-secondary)] lg:col-span-3">
@@ -180,6 +234,33 @@ function About() {
           ))}
         </div>
       </div>
+
+      {/* Profile Highlights */}
+      <section className="mt-24">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-secondary-foreground mb-3">
+            <Sparkles size={18} /> Career Milestones
+          </span>
+          <h2 className="text-4xl font-bold sm:text-6xl">Profile Highlights</h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {profileHighlights.map((item) => (
+            <div
+              key={item.title}
+              className="relative flex flex-col justify-between rounded-2xl border-2 border-border bg-card p-8 shadow-[8px_8px_0_0_var(--color-secondary)] transition-all hover:-translate-y-1"
+            >
+              <div>
+                <span className="inline-block text-xs font-bold uppercase tracking-wider text-primary mb-2">
+                  {item.context}
+                </span>
+                <h3 className="text-2xl font-bold text-foreground mb-3">{item.title}</h3>
+                <p className="text-base text-muted-foreground leading-relaxed">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* Certifications & Official Recommendations */}
       <section className="mt-24">
@@ -235,16 +316,17 @@ function About() {
         </div>
       </section>
 
+      {/* Core Skills */}
       <section className="mt-24">
-        <h2 className="mb-12 w-full text-center text-4xl font-bold sm:text-6xl">Skills</h2>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <span className="rounded-full bg-secondary px-8 py-4 text-lg font-bold text-secondary-foreground">
-            Web
+        <h2 className="mb-12 w-full text-center text-4xl font-bold sm:text-6xl">Core Skills</h2>
+        <div className="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto">
+          <span className="rounded-full bg-secondary px-7 py-3.5 text-base font-bold text-secondary-foreground shadow-sm">
+            Core Stack
           </span>
           {skills.map((s) => (
             <span
               key={s}
-              className="rounded-full border-2 border-border bg-card px-6 py-3 text-base font-semibold transition-transform hover:scale-105 hover:border-primary hover:text-primary"
+              className="rounded-full border-2 border-border bg-card px-5 py-2.5 text-sm font-semibold transition-transform hover:scale-105 hover:border-primary hover:text-primary"
             >
               {s}
             </span>
@@ -252,8 +334,14 @@ function About() {
         </div>
       </section>
 
+      {/* Experience */}
       <section className="mt-24">
-        <h2 className="mb-12 w-full text-center text-4xl font-bold sm:text-6xl">Experience</h2>
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-secondary-foreground mb-3">
+            <Briefcase size={18} /> Career Journey
+          </span>
+          <h2 className="text-4xl font-bold sm:text-6xl">Experience</h2>
+        </div>
         <ul className="mx-auto flex max-w-3xl flex-col gap-10 border-l-2 border-border pl-8">
           {experience.map((e) => (
             <li key={e.position} className="relative">
@@ -265,26 +353,61 @@ function About() {
               <span className="text-sm font-medium text-muted-foreground">
                 {e.time} | {e.address}
               </span>
-              <p className="mt-2 font-medium">{e.work}</p>
+              <p className="mt-2 font-medium leading-relaxed">{e.work}</p>
             </li>
           ))}
         </ul>
       </section>
 
+      {/* Education */}
       <section className="mt-24">
-        <h2 className="mb-12 w-full text-center text-4xl font-bold sm:text-6xl">Education</h2>
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-secondary-foreground mb-3">
+            <GraduationCap size={18} /> Academic & Specialized Learning
+          </span>
+          <h2 className="text-4xl font-bold sm:text-6xl">Education & Certifications</h2>
+        </div>
         <ul className="mx-auto flex max-w-3xl flex-col gap-10 border-l-2 border-border pl-8">
           {education.map((e) => (
-            <li key={e.type} className="relative">
+            <li key={e.type + e.place} className="relative">
               <span className="absolute -left-[41px] top-1.5 h-4 w-4 rounded-full bg-secondary" />
               <h3 className="text-xl font-bold">{e.type}</h3>
-              <span className="text-sm font-medium text-muted-foreground">
-                {e.time} | {e.place}
+              <span className="text-sm font-semibold text-primary">
+                {e.place} • <span className="text-muted-foreground font-normal">{e.time}</span>
               </span>
-              <p className="mt-2 font-medium">{e.detail}</p>
+              <p className="mt-2 font-medium leading-relaxed text-muted-foreground">{e.detail}</p>
             </li>
           ))}
         </ul>
+      </section>
+
+      {/* References */}
+      <section className="mt-24">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-secondary-foreground mb-3">
+            <UserCheck size={18} /> Professional Endorsement
+          </span>
+          <h2 className="text-4xl font-bold sm:text-6xl">References</h2>
+        </div>
+
+        <div className="max-w-xl mx-auto">
+          {references.map((ref) => (
+            <div
+              key={ref.name}
+              className="rounded-2xl border-2 border-border bg-card p-6 shadow-[8px_8px_0_0_var(--color-secondary)] text-center flex flex-col items-center gap-2"
+            >
+              <h3 className="text-2xl font-bold text-foreground">{ref.name}</h3>
+              <p className="text-base font-semibold text-primary">
+                {ref.role} @ {ref.company}
+              </p>
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-4 text-sm font-medium text-muted-foreground">
+                <span>Phone: <strong className="text-foreground">{ref.phone}</strong></span>
+                <span>•</span>
+                <span>Email: <a href={`mailto:${ref.email}`} className="text-foreground hover:text-primary underline underline-offset-2">{ref.email}</a></span>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   );
