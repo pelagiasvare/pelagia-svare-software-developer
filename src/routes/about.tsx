@@ -193,11 +193,11 @@ function About() {
               to="/resume"
               className="inline-flex items-center gap-2 rounded-xl bg-secondary px-5 py-2.5 text-sm font-semibold text-secondary-foreground shadow-sm transition-all hover:opacity-90"
             >
-              <FileText size={16} /> View Online Resume
+              <FileText size={16} /> View Online CV
             </Link>
             <a
-              href="/Pelagia%20Svare%20Cv.pdf"
-              download="Pelagia Svare Cv.pdf"
+              href="/pelagia-svare-cv.pdf"
+              download="pelagia svare cv.pdf"
               className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
             >
               Download CV (PDF) <ExternalLink size={14} />

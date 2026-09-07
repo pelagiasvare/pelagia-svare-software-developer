@@ -4,13 +4,13 @@ import { Download, Printer, ArrowLeft, Mail, Phone, Globe, Briefcase, Graduation
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Pelagia Svare Cv — Software Developer" },
+      { title: "pelagia svare cv" },
       {
         name: "description",
         content:
-          "Curriculum Vitae / Resume of Pelagia Svare, Software Developer skilled in JavaScript, Python, C#, React, and Node.js.",
+          "Curriculum Vitae of Pelagia Svare, Software Developer skilled in JavaScript, Python, C#, React, and Node.js.",
       },
-      { property: "og:title", content: "Pelagia Svare Cv — Software Developer" },
+      { property: "og:title", content: "pelagia svare cv" },
       {
         property: "og:description",
         content:
@@ -23,7 +23,12 @@ export const Route = createFileRoute("/resume")({
 
 function ResumePage() {
   const handlePrint = () => {
+    const prevTitle = document.title;
+    document.title = "pelagia svare cv";
     window.print();
+    setTimeout(() => {
+      document.title = prevTitle;
+    }, 1000);
   };
 
   return (
@@ -45,8 +50,8 @@ function ResumePage() {
             <Printer size={16} /> Print CV
           </button>
           <a
-            href="/Pelagia%20Svare%20Cv.pdf"
-            download="Pelagia Svare Cv.pdf"
+            href="/pelagia-svare-cv.pdf"
+            download="pelagia svare cv.pdf"
             className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-secondary-foreground shadow-sm transition-opacity hover:opacity-90"
           >
             <Download size={16} /> Download CV (PDF)
