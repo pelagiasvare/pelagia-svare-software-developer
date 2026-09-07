@@ -10,13 +10,13 @@ import todoList from "@/assets/project-todo-list.png";
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects — Pelagia Svare, Software Developer" },
+      { title: "Projects — Pelagia Portfolio" },
       {
         name: "description",
         content:
           "Featured software development and product design projects by Pelagia Svare, including Foodieland, The Wattle Company, Chicken Inn, Baker's Inn, React Contact Form, and To-Do App.",
       },
-      { property: "og:title", content: "Projects — Pelagia Svare" },
+      { property: "og:title", content: "Projects — Pelagia Portfolio" },
       {
         property: "og:description",
         content: "Explore Web Applications, Corporate Sites, React Components, and UI/UX designs built by Pelagia Svare.",

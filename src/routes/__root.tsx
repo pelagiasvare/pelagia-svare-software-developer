@@ -75,10 +75,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pelagia Svare — Software Developer & Product Designer" },
+      { title: "Pelagia Portfolio — Software Developer & Product Designer" },
       {
         name: "description",
-        content: "Portfolio of Pelagia Svare, software developer and product designer.",
+        content: "Pelagia Portfolio — Software developer and product designer portfolio.",
       },
       { name: "author", content: "Pelagia Svare" },
       { property: "og:type", content: "website" },

@@ -6,13 +6,13 @@ import { HireMe } from "@/components/HireMe";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pelagia Svare — Software Developer & Product Designer" },
+      { title: "Pelagia Portfolio — Software Developer & Product Designer" },
       {
         name: "description",
         content:
-          "Portfolio of Pelagia Svare, a software developer and product designer building user-focused web and mobile solutions with JavaScript, React and Python.",
+          "Pelagia Portfolio — Software developer and product designer building user-focused web and mobile solutions with JavaScript, React and Python.",
       },
-      { property: "og:title", content: "Pelagia Svare — Software Developer & Product Designer" },
+      { property: "og:title", content: "Pelagia Portfolio — Software Developer & Product Designer" },
       {
         property: "og:description",
         content:

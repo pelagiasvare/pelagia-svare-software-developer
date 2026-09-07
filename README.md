@@ -1,4 +1,4 @@
-# Pelagia Svare — Software Developer & Product Designer
+# Pelagia Portfolio — Software Developer & Product Designer
 
 A modern, responsive portfolio built with **TanStack Router, React, Vite, and Tailwind CSS**, deployed on Vercel.
 

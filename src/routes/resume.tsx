@@ -4,13 +4,13 @@ import { Download, Printer, ArrowLeft, Mail, Phone, Globe, Sparkles, Briefcase, 
 export const Route = createFileRoute("/resume")({
   head: () => ({
     meta: [
-      { title: "Resume — Pelagia Svare | Software Developer" },
+      { title: "Resume — Pelagia Portfolio" },
       {
         name: "description",
         content:
           "Official Resume of Pelagia Svare, Software Developer skilled in JavaScript, Python, C#, React, Node.js, and product design.",
       },
-      { property: "og:title", content: "Pelagia Svare — Software Developer Resume" },
+      { property: "og:title", content: "Resume — Pelagia Portfolio" },
       {
         property: "og:description",
         content:

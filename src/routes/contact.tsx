@@ -5,13 +5,13 @@ import { Send, Mail, MapPin, Phone, CheckCircle2, User, MessageSquare } from "lu
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact Pelagia Svare — Software Developer" },
+      { title: "Contact — Pelagia Portfolio" },
       {
         name: "description",
         content:
           "Get in touch with Pelagia Svare, software developer and product designer. Fill out the contact form or send a message directly to pelagiasvare2002@gmail.com.",
       },
-      { property: "og:title", content: "Contact Pelagia Svare" },
+      { property: "og:title", content: "Contact — Pelagia Portfolio" },
       {
         property: "og:description",
         content: "Send a message or inquiry directly to Pelagia Svare.",

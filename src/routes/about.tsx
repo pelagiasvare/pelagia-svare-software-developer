@@ -6,13 +6,13 @@ import { Award, ExternalLink, FileText, CheckCircle2, UserCheck, Briefcase, Grad
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Pelagia Svare — Software Developer & Product Designer" },
+      { title: "About — Pelagia Portfolio" },
       {
         name: "description",
         content:
           "Biography, core skills, work experience, education, verified certificates, and references of Pelagia Svare, a software developer from Bulawayo, Zimbabwe.",
       },
-      { property: "og:title", content: "About Pelagia Svare" },
+      { property: "og:title", content: "About — Pelagia Portfolio" },
       {
         property: "og:description",
         content: "Passion fuels purpose — skills, experience, education, verified certifications, and references.",
