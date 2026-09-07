@@ -1,10 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Download, Printer, ArrowLeft, ExternalLink } from "lucide-react";
 
-export const Route = createFileRoute("/resume")({
+export const Route = createFileRoute("/cv")({
   head: () => ({
     meta: [
-      { title: "Pelagia Svare Cv" },
+      { title: "Pelagia Svare Cv — Software Developer" },
       {
         name: "description",
         content:
@@ -18,10 +18,10 @@ export const Route = createFileRoute("/resume")({
       },
     ],
   }),
-  component: ResumePage,
+  component: CvPage,
 });
 
-function ResumePage() {
+function CvPage() {
   const handlePrint = () => {
     const prevTitle = document.title;
     document.title = "Pelagia Svare Cv";

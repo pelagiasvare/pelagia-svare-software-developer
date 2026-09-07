@@ -15,6 +15,7 @@ export default defineConfig({
         { path: "/about", prerender: { enabled: true } },
         { path: "/projects", prerender: { enabled: true } },
         { path: "/resume", prerender: { enabled: true } },
+        { path: "/cv", prerender: { enabled: true } },
         { path: "/contact", prerender: { enabled: true } },
       ],
     }),
