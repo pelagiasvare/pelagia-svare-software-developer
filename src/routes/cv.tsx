@@ -1,16 +1,17 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Download, Printer, ArrowLeft, ExternalLink } from "lucide-react";
+import { downloadCv } from "@/lib/downloadCv";
 
 export const Route = createFileRoute("/cv")({
   head: () => ({
     meta: [
-      { title: "Pelagia Svare Cv — Software Developer" },
+      { title: "Pelagia Svare CV — Software Developer" },
       {
         name: "description",
         content:
           "Official CV of Pelagia Svare, Software Developer skilled in JavaScript, Python, C#, React, and Node.js.",
       },
-      { property: "og:title", content: "Pelagia Svare Cv" },
+      { property: "og:title", content: "Pelagia Svare CV" },
       {
         property: "og:description",
         content:
@@ -24,7 +25,7 @@ export const Route = createFileRoute("/cv")({
 function CvPage() {
   const handlePrint = () => {
     const prevTitle = document.title;
-    document.title = "Pelagia Svare Cv";
+    document.title = "Pelagia Svare CV";
     window.print();
     setTimeout(() => {
       document.title = prevTitle;
@@ -43,9 +44,9 @@ function CvPage() {
         </Link>
         <div className="flex flex-wrap items-center gap-3">
           <a
-            href="/pelagia-svare-cv.pdf"
+            href="/Pelagia%20Svare%20CV.pdf"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-4 py-2.5 text-sm font-semibold shadow-sm transition-colors hover:bg-muted"
           >
             Open PDF <ExternalLink size={16} />
@@ -58,9 +59,10 @@ function CvPage() {
             <Printer size={16} /> Print CV
           </button>
           <a
-            href="/pelagia-svare-cv.pdf"
-            download="Pelagia Svare Cv.pdf"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-6 py-2.5 text-sm font-bold text-secondary-foreground shadow-sm transition-opacity hover:opacity-90"
+            href="/Pelagia%20Svare%20CV.pdf"
+            download="Pelagia Svare CV.pdf"
+            onClick={downloadCv}
+            className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-6 py-2.5 text-sm font-bold text-secondary-foreground shadow-sm transition-opacity hover:opacity-90 cursor-pointer"
           >
             <Download size={16} /> Download CV (PDF)
           </a>
@@ -70,23 +72,24 @@ function CvPage() {
       {/* Embedded PDF Viewer */}
       <div className="w-full rounded-2xl border-2 border-border bg-card p-2 sm:p-4 shadow-[10px_10px_0_0_var(--color-secondary)]">
         <object
-          data="/pelagia-svare-cv.pdf#toolbar=1"
+          data="/Pelagia%20Svare%20CV.pdf#toolbar=1"
           type="application/pdf"
           className="w-full h-[85vh] min-h-[700px] rounded-xl"
         >
           <iframe
-            src="/pelagia-svare-cv.pdf"
-            title="Pelagia Svare Cv"
+            src="/Pelagia%20Svare%20CV.pdf"
+            title="Pelagia Svare CV"
             className="w-full h-[85vh] min-h-[700px] rounded-xl border-0"
           >
             <p className="p-4 text-center text-sm">
               Your browser does not support inline PDF viewing.{" "}
               <a
-                href="/pelagia-svare-cv.pdf"
-                download="Pelagia Svare Cv.pdf"
+                href="/Pelagia%20Svare%20CV.pdf"
+                download="Pelagia Svare CV.pdf"
+                onClick={downloadCv}
                 className="text-primary underline font-bold"
               >
-                Click here to download Pelagia Svare Cv.pdf
+                Click here to download Pelagia Svare CV.pdf
               </a>
             </p>
           </iframe>

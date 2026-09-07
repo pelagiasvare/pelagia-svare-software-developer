@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import profilePic from "@/assets/profile-pic.png";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
 import { Award, ExternalLink, FileText, CheckCircle2, UserCheck, Briefcase, GraduationCap, Sparkles } from "lucide-react";
+import { downloadCv } from "@/lib/downloadCv";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -196,9 +197,10 @@ function About() {
               <FileText size={16} /> View Online CV
             </Link>
             <a
-              href="/pelagia-svare-cv.pdf"
-              download="Pelagia Svare Cv.pdf"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+              href="/Pelagia%20Svare%20CV.pdf"
+              download="Pelagia Svare CV.pdf"
+              onClick={downloadCv}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors cursor-pointer"
             >
               Download CV (PDF) <ExternalLink size={14} />
             </a>

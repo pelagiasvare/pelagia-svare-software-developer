@@ -10,13 +10,16 @@ export default defineConfig({
     tanstackRouter(),
     tanstackStart({
       server: { entry: "src/server" },
+      prerender: {
+        crawlLinks: false,
+      },
       pages: [
-        { path: "/", prerender: { enabled: true } },
-        { path: "/about", prerender: { enabled: true } },
-        { path: "/projects", prerender: { enabled: true } },
-        { path: "/resume", prerender: { enabled: true } },
-        { path: "/cv", prerender: { enabled: true } },
-        { path: "/contact", prerender: { enabled: true } },
+        { path: "/", prerender: { enabled: true, crawlLinks: false } },
+        { path: "/about", prerender: { enabled: true, crawlLinks: false } },
+        { path: "/projects", prerender: { enabled: true, crawlLinks: false } },
+        { path: "/resume", prerender: { enabled: true, crawlLinks: false } },
+        { path: "/cv", prerender: { enabled: true, crawlLinks: false } },
+        { path: "/contact", prerender: { enabled: true, crawlLinks: false } },
       ],
     }),
     viteReact(),
