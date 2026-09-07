@@ -52,7 +52,7 @@ function Index() {
                 to="/resume"
                 className="flex items-center gap-2 rounded-lg border-2 border-secondary bg-secondary px-6 py-2.5 text-lg font-semibold text-secondary-foreground transition-colors hover:bg-background hover:text-foreground"
               >
-                Resume <ExternalLink size={18} />
+                View CV <ExternalLink size={18} />
               </Link>
               <Link
                 to="/contact"

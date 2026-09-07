@@ -196,12 +196,11 @@ function About() {
               <FileText size={16} /> View Online Resume
             </Link>
             <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
+              href="/Pelagia%20Svare%20Cv.pdf"
+              download="Pelagia Svare Cv.pdf"
               className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
             >
-              Download PDF <ExternalLink size={14} />
+              Download CV (PDF) <ExternalLink size={14} />
             </a>
           </div>
         </div>
