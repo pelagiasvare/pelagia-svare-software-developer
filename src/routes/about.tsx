@@ -196,7 +196,7 @@ function About() {
               <FileText size={16} /> View Online CV
             </Link>
             <a
-              href="/pelagia-svare-cv.pdf"
+              href="/resume.pdf"
               download="pelagia svare cv.pdf"
               className="inline-flex items-center gap-1.5 text-sm font-semibold underline underline-offset-4 hover:text-primary transition-colors"
             >

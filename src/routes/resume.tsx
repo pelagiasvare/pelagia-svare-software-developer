@@ -50,7 +50,7 @@ function ResumePage() {
             <Printer size={16} /> Print CV
           </button>
           <a
-            href="/pelagia-svare-cv.pdf"
+            href="/resume.pdf"
             download="pelagia svare cv.pdf"
             className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-5 py-2.5 text-sm font-bold text-secondary-foreground shadow-sm transition-opacity hover:opacity-90"
           >
