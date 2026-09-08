@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Portfolio of Pelagia Svare, a software developer and product designer building user-focused web and mobile solutions with JavaScript, React and Python.",
+          "Portfolio of Pelagia Svare, a software developer and product designer building user-focused web and mobile solutions with JavaScript, Python and C#.",
       },
       { property: "og:title", content: "Pelagia Svare — Software Developer & Product Designer" },
       {
@@ -45,19 +45,17 @@ function Index() {
               Software Developer & Product Designer
             </h2>
             <p className="my-6 max-w-lg text-center text-base font-medium text-muted-foreground lg:text-left">
-              I am a software developer skilled in JavaScript and Python, and a Scratch educator who
-              loves turning ideas into practical web and mobile solutions. Explore my latest
+              I am a software developer skilled in JavaScript, Python and C#, and a Scratch educator
+              who loves turning ideas into practical web and mobile solutions. Explore my latest
               projects below.
             </p>
             <div className="flex items-center gap-6 self-center lg:self-start">
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                to="/resume"
                 className="flex items-center gap-2 rounded-lg border-2 border-secondary bg-secondary px-6 py-2.5 text-lg font-semibold text-secondary-foreground transition-colors hover:bg-background hover:text-foreground"
               >
-                Resume <ExternalLink size={18} />
-              </a>
+                View CV <ExternalLink size={18} />
+              </Link>
               <Link
                 to="/contact"
                 className="text-lg font-medium underline underline-offset-4 hover:text-primary transition-colors"

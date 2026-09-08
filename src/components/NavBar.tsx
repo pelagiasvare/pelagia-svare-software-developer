@@ -12,7 +12,7 @@ const links = [
 const socials = [
   { href: "https://github.com", label: "GitHub", Icon: Github },
   { href: "https://linkedin.com", label: "LinkedIn", Icon: Linkedin },
-  { href: "https://pelagiaportfolio.vercel.app/", label: "Portfolio", Icon: Globe },
+  { href: "https://pelagia-svare-software-developer.vercel.app", label: "Portfolio", Icon: Globe },
   { href: "mailto:pelagiasvare2002@gmail.com", label: "Email", Icon: Mail },
 ];
 

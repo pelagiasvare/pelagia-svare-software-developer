@@ -38,13 +38,15 @@ function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Construct mailto link to open user's default email client pre-filled to pelagiasvare2002@gmail.com
-    const subject = encodeURIComponent(`Portfolio Inquiry from ${formData.name} ${formData.surname}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name} ${formData.surname}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`
+    const subject = encodeURIComponent(
+      `Portfolio Inquiry from ${formData.name} ${formData.surname}`,
     );
-    
+    const body = encodeURIComponent(
+      `Name: ${formData.name} ${formData.surname}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage:\n${formData.message}`,
+    );
+
     window.location.href = `mailto:pelagiasvare2002@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
@@ -55,7 +57,15 @@ function Contact() {
         Get In Touch
       </h1>
       <p className="mb-16 w-full text-center text-lg font-medium text-muted-foreground max-w-2xl mx-auto">
-        Have a project idea, question, or collaboration opportunity? Fill out the form below or send an email directly to <a href="mailto:pelagiasvare2002@gmail.com" className="text-primary font-semibold underline underline-offset-4">pelagiasvare2002@gmail.com</a>.
+        Have a project idea, question, or collaboration opportunity? Fill out the form below or send
+        an email directly to{" "}
+        <a
+          href="mailto:pelagiasvare2002@gmail.com"
+          className="text-primary font-semibold underline underline-offset-4"
+        >
+          pelagiasvare2002@gmail.com
+        </a>
+        .
       </p>
 
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 max-w-6xl mx-auto">
@@ -63,15 +73,20 @@ function Contact() {
         <div className="lg:col-span-4 flex flex-col gap-6 justify-between rounded-3xl border-2 border-border bg-card p-8 shadow-[8px_8px_0_0_var(--color-secondary)]">
           <div>
             <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-            
+
             <div className="flex flex-col gap-6">
               <div className="flex items-start gap-4">
                 <div className="rounded-xl bg-secondary p-3 text-secondary-foreground shrink-0">
                   <Mail size={22} />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</h3>
-                  <a href="mailto:pelagiasvare2002@gmail.com" className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors break-all block">
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Email
+                  </h3>
+                  <a
+                    href="mailto:pelagiasvare2002@gmail.com"
+                    className="text-sm sm:text-base font-bold text-foreground hover:text-primary transition-colors break-all block"
+                  >
                     pelagiasvare2002@gmail.com
                   </a>
                 </div>
@@ -82,9 +97,14 @@ function Contact() {
                   <Phone size={22} />
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Phone</h3>
-                  <a href="tel:+263715751664" className="text-base font-bold text-foreground hover:text-primary transition-colors">
-                    +263 71 575 1664
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Phone
+                  </h3>
+                  <a
+                    href="tel:+263781648526"
+                    className="text-base font-bold text-foreground hover:text-primary transition-colors"
+                  >
+                    +263 78 164 8526
                   </a>
                 </div>
               </div>
@@ -94,10 +114,10 @@ function Contact() {
                   <MapPin size={22} />
                 </div>
                 <div>
-                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Location</h3>
-                  <p className="text-base font-bold text-foreground">
-                    Bulawayo, Zimbabwe
-                  </p>
+                  <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    Location
+                  </h3>
+                  <p className="text-base font-bold text-foreground">Bulawayo, Zimbabwe</p>
                 </div>
               </div>
             </div>
@@ -105,7 +125,12 @@ function Contact() {
 
           <div className="rounded-2xl border border-border/80 bg-background/50 p-4 mt-6">
             <p className="text-xs text-muted-foreground font-medium">
-              💡 Fast Response Guaranteed — All form submissions trigger an immediate mail composition to <span className="font-semibold text-foreground break-all">pelagiasvare2002@gmail.com</span>.
+              💡 Fast Response Guaranteed — All form submissions trigger an immediate mail
+              composition to{" "}
+              <span className="font-semibold text-foreground break-all">
+                pelagiasvare2002@gmail.com
+              </span>
+              .
             </p>
           </div>
         </div>
@@ -122,7 +147,8 @@ function Contact() {
               <CheckCircle2 size={56} className="text-primary mb-4" />
               <h3 className="text-2xl font-bold mb-2">Message Composed!</h3>
               <p className="text-muted-foreground max-w-md mb-6">
-                Your message has been formatted and opened in your email client addressed to <strong className="text-foreground">pelagiasvare2002@gmail.com</strong>.
+                Your message has been formatted and opened in your email client addressed to{" "}
+                <strong className="text-foreground">pelagiasvare2002@gmail.com</strong>.
               </p>
               <button
                 type="button"
@@ -136,7 +162,10 @@ function Contact() {
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label htmlFor="name" className="text-sm font-bold text-foreground flex items-center gap-1.5">
+                  <label
+                    htmlFor="name"
+                    className="text-sm font-bold text-foreground flex items-center gap-1.5"
+                  >
                     <User size={16} /> Name
                   </label>
                   <input
@@ -202,7 +231,10 @@ function Contact() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-bold text-foreground flex items-center gap-1.5">
+                <label
+                  htmlFor="message"
+                  className="text-sm font-bold text-foreground flex items-center gap-1.5"
+                >
                   <MessageSquare size={16} /> Message
                 </label>
                 <textarea

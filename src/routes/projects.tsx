@@ -19,7 +19,8 @@ export const Route = createFileRoute("/projects")({
       { property: "og:title", content: "Projects — Pelagia Svare" },
       {
         property: "og:description",
-        content: "Explore Web Applications, Corporate Sites, React Components, and UI/UX designs built by Pelagia Svare.",
+        content:
+          "Explore Web Applications, Corporate Sites, React Components, and UI/UX designs built by Pelagia Svare.",
       },
     ],
   }),
@@ -106,7 +107,11 @@ function Projects() {
           <h2 className="my-2 text-3xl font-bold sm:text-4xl">{featured.title}</h2>
           <p className="font-medium text-muted-foreground">{featured.summary}</p>
           <div className="mt-6 flex items-center gap-4">
-            <a href="#" aria-label="GitHub repository" className="w-8 text-foreground hover:text-primary">
+            <a
+              href="#"
+              aria-label="GitHub repository"
+              className="w-8 text-foreground hover:text-primary"
+            >
               <Github size={28} />
             </a>
             <a
@@ -143,9 +148,13 @@ function Projects() {
               />
             </a>
             <div className="flex w-full flex-col items-start justify-between flex-1">
-              <span className="text-sm font-semibold uppercase tracking-wider text-primary">{p.type}</span>
+              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+                {p.type}
+              </span>
               <h2 className="my-1 text-2xl font-bold">{p.title}</h2>
-              <p className="my-2 text-sm font-normal text-muted-foreground leading-relaxed">{p.summary}</p>
+              <p className="my-2 text-sm font-normal text-muted-foreground leading-relaxed">
+                {p.summary}
+              </p>
               <div className="mt-4 flex w-full items-center justify-between pt-2 border-t border-border/50">
                 <a
                   href={p.link}
@@ -155,7 +164,11 @@ function Projects() {
                 >
                   Visit Project <ExternalLink size={18} />
                 </a>
-                <a href="#" aria-label="GitHub repository" className="text-foreground hover:text-primary">
+                <a
+                  href="#"
+                  aria-label="GitHub repository"
+                  className="text-foreground hover:text-primary"
+                >
                   <Github size={24} />
                 </a>
               </div>

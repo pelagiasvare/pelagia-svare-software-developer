@@ -15,7 +15,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About Pelagia Svare" },
       {
         property: "og:description",
-        content: "Passion fuels purpose — skills, experience, education, and verified certifications.",
+        content:
+          "Passion fuels purpose — skills, experience, education, and verified certifications.",
       },
     ],
   }),
@@ -55,22 +56,24 @@ const certificates = [
 ];
 
 const skills = [
+  "C#",
+  ".NET",
+  "Entity Framework",
   "JavaScript",
   "TypeScript",
+  "Python",
   "HTML5",
   "CSS3",
-  "React",
   "Node.js",
-  "Next.js",
+  "React",
+  "Git & GitHub",
+  "IT Support",
+  "Scratch Programming",
   "Vite",
   "Styled Components",
-  "Firebase",
-  "Supabase",
-  "Python",
-  "Git & GitHub",
-  "Scratch",
-  "Figma",
+  "Vercel",
   "Prompt Engineering",
+  "Figma",
 ];
 
 const experience = [
@@ -99,11 +102,25 @@ const experience = [
 
 const education = [
   {
-    type: "Software Development Stack Specialisation",
+    type: "Responsive Website Design Certification",
+    time: "2026",
+    place: "FreeCodeCamp",
+    detail:
+      "Comprehensive certification covering modern responsive design, HTML5 semantics, modern CSS, Flexbox, Grid, accessibility standards, and responsive web principles.",
+  },
+  {
+    type: "UX/Product Design Learning",
+    time: "2026",
+    place: "Uxcel",
+    detail:
+      "User research, wireframing, interactive prototyping, UI component design, usability principles, and user journey optimization.",
+  },
+  {
+    type: "Information Technology & Software Development",
     time: "2026",
     place: "Uncommon.org",
     detail:
-      "Technology bootcamp covering front-end and back-end React frameworks, Vite, Next.js, Node.js & Express, Firebase, Supabase, prompt engineering and professional communication.",
+      "Full-stack software development specialization covering C#, .NET, JavaScript, React frameworks, Vite, Node.js & Express, backend APIs, prompt engineering and professional teamwork.",
   },
   {
     type: "Crash Course on Python Certification",
@@ -119,13 +136,6 @@ const education = [
     detail:
       "Verified course completion in systems engineering principles, architecture design, and system lifecycle modeling.",
   },
-  {
-    type: "Front-End Development & UI/UX Training",
-    time: "2026",
-    place: "Uncommon.org & Uxcel",
-    detail:
-      "Core front-end engineering: JavaScript fundamentals, React component architecture, user research, wireframing, and accessible interface development.",
-  },
 ];
 
 function About() {
@@ -139,8 +149,8 @@ function About() {
         <div className="col-span-1 flex flex-col items-start justify-start lg:col-span-3">
           <h2 className="mb-4 text-lg font-bold uppercase text-muted-foreground">Biography</h2>
           <p className="font-medium">
-            Hi, I am Pelagia Svare, a software developer skilled in JavaScript and Python, building
-            user-focused web and application solutions from Bulawayo, Zimbabwe.
+            Hi, I am Pelagia Svare, a software developer skilled in JavaScript, Python and C#,
+            building user-focused web and application solutions from Bulawayo, Zimbabwe.
           </p>
           <p className="my-4 font-medium">
             I am also an experienced Scratch educator and mentor, teaching young learners
