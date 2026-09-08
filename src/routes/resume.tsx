@@ -387,9 +387,6 @@ function Resume() {
                   >
                     tonderai@uncommon.org
                   </a>
-                  <p className="mt-2 text-xs text-muted-foreground italic">
-                    Available upon request.
-                  </p>
                 </div>
               </section>
             </div>
