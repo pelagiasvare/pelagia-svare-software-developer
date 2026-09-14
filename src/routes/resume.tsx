@@ -346,6 +346,19 @@ function Resume() {
                     focusing on accessibility, responsive design and clean, user-friendly
                     interfaces.
                   </li>
+                  <li>
+                    Active member and collaborator in the <strong>CodeFam</strong> global developer
+                    community (
+                    <a
+                      href="https://codefam.dev"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline hover:text-primary transition-colors"
+                    >
+                      codefam.dev
+                    </a>
+                    ), contributing to open-source software and collaborative development.
+                  </li>
                 </ul>
               </section>
 

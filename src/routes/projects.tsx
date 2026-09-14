@@ -1,11 +1,19 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Github, ExternalLink } from "lucide-react";
+import { useState } from "react";
+import { Github, ExternalLink, Sparkles } from "lucide-react";
 import foodieland from "@/assets/project-foodieland.png";
 import wattleCompany from "@/assets/project-wattle-company.png";
 import chickenInn from "@/assets/project-chicken-inn.png";
 import bakersInn from "@/assets/project-bakers-inn.png";
 import contactForm from "@/assets/project-contact-form.png";
 import todoList from "@/assets/project-todo-list.png";
+import projectCrypto from "@/assets/project-crypto.jpg";
+import projectAgency from "@/assets/project-agency.jpg";
+import projectRagPipeline from "@/assets/project-rag-pipeline.svg";
+import projectExpressApi from "@/assets/project-express-api.svg";
+import projectCalculator from "@/assets/project-calculator.svg";
+import projectWeather from "@/assets/project-weather.svg";
+import projectKidverse from "@/assets/project-kidverse.svg";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -14,120 +22,281 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Featured software development and product design projects by Pelagia Svare, including Foodieland, The Wattle Company, Chicken Inn, Baker's Inn, React Contact Form, and To-Do App.",
+          "Explore software development and product design projects by Pelagia Svare: Full-Stack Web Applications, AI Pipelines, REST APIs, Python Software, and Interactive UI Components.",
       },
       { property: "og:title", content: "Projects — Pelagia Svare" },
       {
         property: "og:description",
         content:
-          "Explore Web Applications, Corporate Sites, React Components, and UI/UX designs built by Pelagia Svare.",
+          "Explore Web Applications, AI Systems, REST APIs, and UI/UX designs built by Pelagia Svare.",
       },
     ],
   }),
   component: Projects,
 });
 
-const featured = {
+type Category = "All" | "Web Apps" | "AI & Backend" | "Python & Tools";
+
+interface ProjectItem {
+  title: string;
+  type: string;
+  category: "Web Apps" | "AI & Backend" | "Python & Tools";
+  summary: string;
+  img: string;
+  link: string;
+  github: string;
+  tech: string[];
+}
+
+const featured: ProjectItem = {
   title: "Foodieland — Recipe & Delights Platform",
   summary:
-    "A mouth-watering culinary web application featuring hand-picked recipes, dish categories, cooking time indicators, ingredient breakdowns, and an intuitive UI designed for food enthusiasts.",
+    "A culinary web application featuring hand-picked recipes, dish categories, cooking time indicators, ingredient breakdowns, and an intuitive UI designed for food enthusiasts.",
   img: foodieland,
   type: "Featured Web Application",
+  category: "Web Apps",
   link: "https://foodlide.vercel.app/",
+  github: "https://github.com/pelagiasvare/Foodlide",
+  tech: ["React", "Vite", "Tailwind CSS", "JavaScript"],
 };
 
-const others = [
+const allProjects: ProjectItem[] = [
   {
-    title: "Baker's Inn — Fresh Bread & Bakery Website",
+    title: "Kidverse — Children's E-Commerce & Marketplace",
+    type: "Full-Stack Marketplace Platform",
+    category: "Web Apps",
+    summary:
+      "A full-stack e-commerce and delivery marketplace for children's fashion, toys, and essentials. Features Next.js 15, React 19, Supabase, Prisma ORM, NextAuth authentication, and Cloudinary asset management.",
+    img: projectKidverse,
+    link: "https://kidversee.vercel.app/",
+    github: "https://github.com/thembiencube08-dotcom/kidversee",
+    tech: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Prisma ORM"],
+  },
+  {
+    title: "Baker's Inn — Fresh Bread & Bakery Platform",
     type: "Bakery Web Platform",
+    category: "Web Apps",
     summary:
       "A warm, appetizing web experience for Baker's Inn showcasing fresh bread, pies, scones and doughnuts, with product ranges, recipes, kid's corner games, factory tour and donation requests.",
     img: bakersInn,
     link: "https://bakers-inn-react-js.vercel.app/",
+    github: "https://github.com/pelagiasvare/bakersinnwebisite",
+    tech: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
   },
   {
     title: "The Wattle Company",
     type: "Corporate Website",
+    category: "Web Apps",
     summary:
       "Official website for The Wattle Company showcasing sustainable timber & forestry products since 1945, product categories, and instant quote requests.",
     img: wattleCompany,
     link: "https://wattlecompany-project.vercel.app/",
+    github: "https://github.com/pelagiasvare/wattlecompany",
+    tech: ["React", "Vite", "Modern CSS", "Accessibility"],
   },
   {
-    title: "Chicken Inn Website",
+    title: "Chicken Inn Fast Food Experience",
     type: "Fast Food Web Platform",
+    category: "Web Apps",
     summary:
       "A bold, high-energy fast-food restaurant web experience built for Chicken Inn with dynamic hero banners, food showcases, and quick menu navigation.",
     img: chickenInn,
     link: "https://chickeninnwebsite.vercel.app/",
-  },
-  {
-    title: "React Contact Form",
-    type: "Interactive Component",
-    summary:
-      "A responsive contact form interface built with React, featuring user input validation, structured layout (Name, Surname, Phone, Email, Message), and smooth submit interactions.",
-    img: contactForm,
-    link: "https://formreactjs.vercel.app/",
+    github: "https://github.com/pelagiasvare/chickeninnwebsite",
+    tech: ["React", "CSS Modules", "Responsive Design"],
   },
   {
     title: "To-Do List Task Manager",
     type: "Web Application",
+    category: "Web Apps",
     summary:
       "An intuitive task management dashboard with metric counters for Total Tasks, Completed, and Failed tasks, rapid task addition, and clean state feedback.",
     img: todoList,
-    link: "https://todolist-app.vercel.app/",
+    link: "https://todolist-psi-tawny.vercel.app/",
+    github: "https://github.com/pelagiasvare/todolist",
+    tech: ["React", "useState Hook", "Task State Management", "CSS"],
+  },
+  {
+    title: "React Contact Form & Email Integration",
+    type: "Interactive Component",
+    category: "Web Apps",
+    summary:
+      "A responsive contact form interface built with React, featuring user input validation, structured layout, and seamless EmailJS integration for direct inbox delivery.",
+    img: contactForm,
+    link: "https://formreactjs.vercel.app/",
+    github: "https://github.com/pelagiasvare/formreactjs",
+    tech: ["React", "EmailJS", "Form Validation", "CSS"],
+  },
+  {
+    title: "AI RAG Pipeline & Document Assistant",
+    type: "AI & NLP System",
+    category: "AI & Backend",
+    summary:
+      "Retrieval-Augmented Generation pipeline built with Node.js and OpenAI: document chunking, semantic embedding generation (1536-dim), vector search, and citation synthesis.",
+    img: projectRagPipeline,
+    link: "https://github.com/pelagiasvare/04_Simple_RAG_Pipeline",
+    github: "https://github.com/pelagiasvare/04_Simple_RAG_Pipeline",
+    tech: ["OpenAI API", "Vector Embeddings", "Node.js", "RAG"],
+  },
+  {
+    title: "Investment & Asset Portfolio Dashboard",
+    type: "FinTech Web App",
+    category: "Web Apps",
+    summary:
+      "A responsive financial management application built with React, featuring user asset tracking, portfolio metric visualization, and seamless API integrations.",
+    img: projectCrypto,
+    link: "https://github.com/pelagiasvare/investment-app",
+    github: "https://github.com/pelagiasvare/investment-app",
+    tech: ["React", "State Management", "Data Charts", "REST API"],
+  },
+  {
+    title: "Express.js RESTful CRUD API Service",
+    type: "Backend & API Service",
+    category: "AI & Backend",
+    summary:
+      "A robust backend CRUD API built with Node.js and Express. Features custom request validation middleware, centralized error handling, and secure RESTful endpoint architecture.",
+    img: projectExpressApi,
+    link: "https://github.com/pelagiasvare/my-express-app",
+    github: "https://github.com/pelagiasvare/my-express-app",
+    tech: ["Node.js", "Express.js", "REST Architecture", "Middleware"],
+  },
+  {
+    title: "MyFurniture — Modern E-Commerce Platform",
+    type: "E-Commerce Website",
+    category: "Web Apps",
+    summary:
+      "A contemporary online shopping platform showcasing affordable home and office furniture with dynamic product categories, detailed item specs, and clean responsive design.",
+    img: projectAgency,
+    link: "https://github.com/pelagiasvare/myfurnitewebsite",
+    github: "https://github.com/pelagiasvare/myfurnitewebsite",
+    tech: ["HTML5", "CSS3", "JavaScript", "E-Commerce UI"],
+  },
+  {
+    title: "Python Advanced Scientific Calculator",
+    type: "Python Application",
+    category: "Python & Tools",
+    summary:
+      "An interactive Python computational tool supporting standard arithmetic, powers, square roots, trigonometry, hyperbolic functions, and random generation.",
+    img: projectCalculator,
+    link: "https://github.com/pelagiasvare/createcalculator",
+    github: "https://github.com/pelagiasvare/createcalculator",
+    tech: ["Python 3", "Math Module", "CLI / Algorithms"],
+  },
+  {
+    title: "OpenWeather Live Forecast App",
+    type: "Weather Web Application",
+    category: "Web Apps",
+    summary:
+      "An asynchronous weather platform utilizing JavaScript and the OpenWeatherMap API to fetch live temperature, atmospheric conditions, and humidity for worldwide cities.",
+    img: projectWeather,
+    link: "https://github.com/pelagiasvare/weather",
+    github: "https://github.com/pelagiasvare/weather",
+    tech: ["JavaScript", "Fetch API", "OpenWeatherMap", "CSS3"],
   },
 ];
 
+const categories: Category[] = ["All", "Web Apps", "AI & Backend", "Python & Tools"];
+
 function Projects() {
+  const [activeCategory, setActiveCategory] = useState<Category>("All");
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? allProjects
+      : allProjects.filter((p) => p.category === activeCategory);
+
+  const showFeatured = activeCategory === "All" || activeCategory === "Web Apps";
+
   return (
     <main className="w-full px-8 pb-16 md:px-16 lg:px-32">
-      <h1 className="mb-16 w-full text-center text-4xl font-bold uppercase tracking-tight sm:text-6xl lg:text-7xl">
-        My Featured Projects
-      </h1>
-
-      <article className="relative mb-16 flex w-full flex-col items-center justify-between gap-8 rounded-3xl border-2 border-solid border-border bg-card p-8 shadow-[10px_10px_0_0_var(--color-secondary)] lg:flex-row">
-        <a
-          href={featured.link}
-          target="_blank"
-          rel="noreferrer"
-          className="w-full cursor-pointer overflow-hidden rounded-lg lg:w-1/2"
-        >
-          <img
-            src={featured.img}
-            alt={featured.title}
-            width={1280}
-            height={800}
-            loading="lazy"
-            className="h-auto w-full transition-transform duration-500 hover:scale-105"
-          />
-        </a>
-        <div className="flex w-full flex-col items-start justify-between lg:w-1/2">
-          <span className="text-xl font-medium text-primary">{featured.type}</span>
-          <h2 className="my-2 text-3xl font-bold sm:text-4xl">{featured.title}</h2>
-          <p className="font-medium text-muted-foreground">{featured.summary}</p>
-          <div className="mt-6 flex items-center gap-4">
-            <a
-              href="#"
-              aria-label="GitHub repository"
-              className="w-8 text-foreground hover:text-primary"
-            >
-              <Github size={28} />
-            </a>
-            <a
-              href={featured.link}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 rounded-lg bg-secondary px-6 py-2.5 text-lg font-semibold text-secondary-foreground transition-colors hover:opacity-90"
-            >
-              Visit Project <ExternalLink size={20} />
-            </a>
-          </div>
+      <div className="mb-12 flex flex-col items-center text-center">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+          <Sparkles size={14} /> Portfolio Showcase
         </div>
-      </article>
+        <h1 className="w-full text-4xl font-bold uppercase tracking-tight sm:text-6xl lg:text-7xl">
+          My Projects
+        </h1>
+        <p className="mt-4 max-w-2xl text-base font-medium text-muted-foreground sm:text-lg">
+          Explore my complete collection of web applications, AI pipelines, backend APIs, and Python
+          software with direct GitHub repository code and live deployments.
+        </p>
 
+        {/* Category Filter Pills */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              onClick={() => setActiveCategory(cat)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition-all cursor-pointer ${
+                activeCategory === cat
+                  ? "bg-secondary text-secondary-foreground shadow-[4px_4px_0_0_var(--color-primary)] scale-105"
+                  : "border-2 border-border bg-card text-foreground hover:border-primary/60 hover:text-primary"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Featured Project */}
+      {showFeatured && (
+        <article className="relative mb-16 flex w-full flex-col items-center justify-between gap-8 rounded-3xl border-2 border-solid border-border bg-card p-8 shadow-[10px_10px_0_0_var(--color-secondary)] lg:flex-row">
+          <a
+            href={featured.link}
+            target="_blank"
+            rel="noreferrer"
+            className="w-full cursor-pointer overflow-hidden rounded-lg lg:w-1/2"
+          >
+            <img
+              src={featured.img}
+              alt={featured.title}
+              width={1280}
+              height={800}
+              loading="lazy"
+              className="h-auto w-full transition-transform duration-500 hover:scale-105"
+            />
+          </a>
+          <div className="flex w-full flex-col items-start justify-between lg:w-1/2">
+            <span className="text-xl font-medium text-primary">{featured.type}</span>
+            <h2 className="my-2 text-3xl font-bold sm:text-4xl">{featured.title}</h2>
+            <p className="font-medium text-muted-foreground leading-relaxed">{featured.summary}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {featured.tech.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-md border border-border bg-muted/60 px-2.5 py-1 text-xs font-semibold text-foreground"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <a
+                href={featured.link}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-lg bg-secondary px-6 py-2.5 text-base font-bold text-secondary-foreground transition-all hover:opacity-90 shadow-sm"
+              >
+                Visit Live Site <ExternalLink size={18} />
+              </a>
+              <a
+                href={featured.github}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 rounded-lg border-2 border-border bg-card px-5 py-2 text-base font-semibold text-foreground transition-all hover:border-primary hover:text-primary"
+              >
+                <Github size={18} /> GitHub Repo
+              </a>
+            </div>
+          </div>
+        </article>
+      )}
+
+      {/* All Projects Grid */}
       <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-        {others.map((p) => (
+        {filteredProjects.map((p) => (
           <article
             key={p.title}
             className="relative flex w-full flex-col items-start justify-between rounded-2xl border-2 border-solid border-border bg-card p-6 shadow-[8px_8px_0_0_var(--color-secondary)] transition-all hover:-translate-y-1"
@@ -155,21 +324,35 @@ function Projects() {
               <p className="my-2 text-sm font-normal text-muted-foreground leading-relaxed">
                 {p.summary}
               </p>
-              <div className="mt-4 flex w-full items-center justify-between pt-2 border-t border-border/50">
+
+              <div className="mt-2 mb-4 flex flex-wrap gap-1.5">
+                {p.tech.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-md border border-border/80 bg-muted/40 px-2 py-0.5 text-xs font-medium text-foreground/80"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-auto flex w-full flex-wrap items-center justify-between gap-3 pt-3 border-t border-border/50">
                 <a
                   href={p.link}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-1.5 text-lg font-semibold underline underline-offset-4 hover:text-primary transition-colors"
+                  className="inline-flex items-center gap-1.5 text-base font-semibold underline underline-offset-4 hover:text-primary transition-colors"
                 >
-                  Visit Project <ExternalLink size={18} />
+                  {p.link.includes("github.com") ? "View Code" : "Live Demo"}{" "}
+                  <ExternalLink size={16} />
                 </a>
                 <a
-                  href="#"
-                  aria-label="GitHub repository"
-                  className="text-foreground hover:text-primary"
+                  href={p.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-muted/40 px-3 py-1.5 text-xs font-bold text-foreground transition-all hover:bg-secondary hover:text-secondary-foreground"
                 >
-                  <Github size={24} />
+                  <Github size={14} /> GitHub Repo
                 </a>
               </div>
             </div>

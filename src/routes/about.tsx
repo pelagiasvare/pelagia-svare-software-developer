@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import profilePic from "@/assets/profile-pic.png";
 import { AnimatedNumber } from "@/components/AnimatedNumber";
-import { Award, ExternalLink, FileText, CheckCircle2 } from "lucide-react";
+import { Award, ExternalLink, FileText, CheckCircle2, Users, Globe, Github } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -10,18 +10,31 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Biography, skills, experience, education, and verified certificates of Pelagia Svare, a software developer from Bulawayo, Zimbabwe.",
+          "Biography, skills, experience, education, community involvement, and verified certificates of Pelagia Svare, a software developer from Bulawayo, Zimbabwe.",
       },
       { property: "og:title", content: "About Pelagia Svare" },
       {
         property: "og:description",
         content:
-          "Passion fuels purpose — skills, experience, education, and verified certifications.",
+          "Passion fuels purpose — skills, experience, education, developer communities, and verified certifications.",
       },
     ],
   }),
   component: About,
 });
+
+const communities = [
+  {
+    name: "CodeFam (CodeFam-Dev)",
+    role: "Active Member & Collaborator",
+    badge: "Developer Community",
+    summary:
+      "A global developer community where engineers connect, collaborate, learn, and build impactful software together. Actively participating in open-source development, collaborative sprints, and community technical initiatives.",
+    location: "Zimbabwe / Global",
+    website: "https://codefam.dev/",
+    github: "https://github.com/codefam-dev/codefam.dev",
+  },
+];
 
 const certificates = [
   {
@@ -239,6 +252,63 @@ function About() {
                     View Document PDF <FileText size={14} />
                   </a>
                 )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Developer Communities & Collaboration */}
+      <section className="mt-24">
+        <div className="flex flex-col items-center justify-center text-center mb-12">
+          <span className="inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-semibold text-secondary-foreground mb-3">
+            <Users size={18} /> Community & Collaboration
+          </span>
+          <h2 className="text-4xl font-bold sm:text-6xl">Developer Communities</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground text-sm sm:text-base">
+            Actively contributing, collaborating, and building alongside global developer networks.
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          {communities.map((comm) => (
+            <div
+              key={comm.name}
+              className="relative flex flex-col justify-between rounded-2xl border-2 border-border bg-card p-6 sm:p-8 shadow-[8px_8px_0_0_var(--color-secondary)] transition-all hover:-translate-y-1"
+            >
+              <div>
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-secondary/50 px-2.5 py-1 text-xs font-semibold text-secondary-foreground">
+                    <Users size={14} /> {comm.badge}
+                  </span>
+                  <span className="text-xs font-semibold text-muted-foreground">
+                    {comm.location}
+                  </span>
+                </div>
+                <h3 className="text-2xl font-bold text-foreground">{comm.name}</h3>
+                <p className="text-sm font-semibold text-primary mb-3">{comm.role}</p>
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  {comm.summary}
+                </p>
+              </div>
+
+              <div className="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-border/50">
+                <a
+                  href={comm.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-secondary px-4 py-2 text-xs font-bold text-secondary-foreground transition-colors hover:opacity-90 shadow-sm"
+                >
+                  Visit codefam.dev <Globe size={14} />
+                </a>
+                <a
+                  href={comm.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-4 py-2 text-xs font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  <Github size={14} /> View on GitHub
+                </a>
               </div>
             </div>
           ))}
