@@ -5,6 +5,7 @@ import { Github, ExternalLink, Sparkles } from "lucide-react";
 // 100% Real Live Website Screenshots
 import foodieland from "@/assets/project-foodieland.png";
 import kidverse from "@/assets/project-kidverse.png";
+import codefam from "@/assets/project-codefam.png";
 import chickenInn from "@/assets/project-chicken-inn.png";
 import bakersInn from "@/assets/project-bakers-inn.png";
 import wattleCompany from "@/assets/project-wattle-company.png";
@@ -19,25 +20,27 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Featured software development and product design projects by Pelagia Svare, including Foodieland, Kidverse, Chicken Inn, Baker's Inn, The Wattle Company, Portfolio, To-Do App, and Contact Form.",
+          "Featured software development and product design projects by Pelagia Svare, including Foodieland, Kidverse, CodeFam, Chicken Inn, Baker's Inn, The Wattle Company, Portfolio, To-Do App, and Contact Form.",
       },
       { property: "og:title", content: "Projects — Pelagia Svare" },
       {
         property: "og:description",
         content:
-          "Explore real-world live Web Applications, E-Commerce Marketplaces, Corporate Portals, and UI Systems built by Pelagia Svare.",
+          "Explore real-world live Web Applications, E-Commerce Marketplaces, Developer Platforms, Corporate Portals, and UI Systems built by Pelagia Svare.",
       },
     ],
   }),
   component: Projects,
 });
 
-type Category = "All" | "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand";
+type Category =
+  "All" | "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand" | "Community & Platforms";
 
 interface ProjectItem {
   title: string;
   type: string;
-  category: "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand";
+  category:
+    "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand" | "Community & Platforms";
   summary: string;
   img: string;
   link: string;
@@ -68,6 +71,17 @@ const allProjects: ProjectItem[] = [
     link: "https://kidversee.vercel.app/",
     github: "https://github.com/thembiencube08-dotcom/kidversee",
     tech: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Prisma ORM"],
+  },
+  {
+    title: "CodeFam — Global Developer Community & Platform",
+    type: "Developer Community Platform",
+    category: "Community & Platforms",
+    summary:
+      "A global collaborative platform where developers connect across the world, find talent, collaborate on open-source projects, post ideas, get forum help, and support each other.",
+    img: codefam,
+    link: "https://codefam.dev/",
+    github: "https://github.com/codefam-dev/codefam.dev",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Community Platform"],
   },
   {
     title: "Chicken Inn Fast Food Experience",
@@ -141,6 +155,7 @@ const categories: Category[] = [
   "All",
   "Web Apps",
   "E-Commerce & Marketplaces",
+  "Community & Platforms",
   "Corporate & Brand",
 ];
 
