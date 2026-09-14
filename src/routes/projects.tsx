@@ -2,21 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Github, ExternalLink, Sparkles } from "lucide-react";
 
-// Real website and repository screenshots
+// 100% Real Live Website Screenshots
 import foodieland from "@/assets/project-foodieland.png";
 import kidverse from "@/assets/project-kidverse.png";
+import chickenInn from "@/assets/project-chicken-inn.png";
 import bakersInn from "@/assets/project-bakers-inn.png";
 import wattleCompany from "@/assets/project-wattle-company.png";
-import chickenInn from "@/assets/project-chicken-inn.png";
 import portfolioV1 from "@/assets/project-portfolio-v1.png";
 import todoList from "@/assets/project-todo-list.png";
 import contactForm from "@/assets/project-contact-form.png";
-import ragPipeline from "@/assets/project-rag-pipeline.png";
-import expressApi from "@/assets/project-express-api.png";
-import investmentApp from "@/assets/project-investment.png";
-import furnitureApp from "@/assets/project-furniture.png";
-import calculatorApp from "@/assets/project-calculator.png";
-import weatherApp from "@/assets/project-weather.png";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -25,25 +19,25 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Explore all software development and product design projects by Pelagia Svare: Full-Stack Web Applications, AI Systems, REST APIs, Python Software, and Live Deployed Websites.",
+          "Featured software development and product design projects by Pelagia Svare, including Foodieland, Kidverse, Chicken Inn, Baker's Inn, The Wattle Company, Portfolio, To-Do App, and Contact Form.",
       },
       { property: "og:title", content: "Projects — Pelagia Svare" },
       {
         property: "og:description",
         content:
-          "Explore real-world Web Applications, AI Systems, REST APIs, and UI/UX designs built by Pelagia Svare.",
+          "Explore real-world live Web Applications, E-Commerce Marketplaces, Corporate Portals, and UI Systems built by Pelagia Svare.",
       },
     ],
   }),
   component: Projects,
 });
 
-type Category = "All" | "Web Apps" | "AI & Backend" | "Python & Tools";
+type Category = "All" | "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand";
 
 interface ProjectItem {
   title: string;
   type: string;
-  category: "Web Apps" | "AI & Backend" | "Python & Tools";
+  category: "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand";
   summary: string;
   img: string;
   link: string;
@@ -67,7 +61,7 @@ const allProjects: ProjectItem[] = [
   {
     title: "Kidverse — Children's E-Commerce & Marketplace",
     type: "Full-Stack Marketplace Platform",
-    category: "Web Apps",
+    category: "E-Commerce & Marketplaces",
     summary:
       "A full-stack e-commerce and delivery marketplace for children's fashion, toys, and essentials. Features Next.js 15, React 19, Supabase, Prisma ORM, NextAuth authentication, and Cloudinary asset management.",
     img: kidverse,
@@ -76,9 +70,20 @@ const allProjects: ProjectItem[] = [
     tech: ["Next.js 15", "React 19", "TypeScript", "Tailwind CSS", "Supabase", "Prisma ORM"],
   },
   {
+    title: "Chicken Inn Fast Food Experience",
+    type: "Fast Food Web Platform",
+    category: "Corporate & Brand",
+    summary:
+      "A bold, high-energy fast-food restaurant web experience built for Chicken Inn with dynamic hero banners, food showcases, and quick menu navigation.",
+    img: chickenInn,
+    link: "https://chickeninnwebsite.vercel.app/",
+    github: "https://github.com/pelagiasvare/chickeninnwebsite",
+    tech: ["React", "CSS Modules", "Responsive Design", "Brand UI"],
+  },
+  {
     title: "Baker's Inn — Fresh Bread & Bakery Platform",
     type: "Bakery Web Platform",
-    category: "Web Apps",
+    category: "Corporate & Brand",
     summary:
       "A warm, appetizing web experience for Baker's Inn showcasing fresh bread, pies, scones and doughnuts, with product ranges, recipes, kid's corner games, factory tour and donation requests.",
     img: bakersInn,
@@ -87,26 +92,15 @@ const allProjects: ProjectItem[] = [
     tech: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
   },
   {
-    title: "The Wattle Company",
+    title: "The Wattle Company Corporate Portal",
     type: "Corporate Website",
-    category: "Web Apps",
+    category: "Corporate & Brand",
     summary:
       "Official website for The Wattle Company showcasing sustainable timber & forestry products since 1945, product categories, and instant quote requests.",
     img: wattleCompany,
     link: "https://wattlecompany-project.vercel.app/",
     github: "https://github.com/pelagiasvare/wattlecompany",
     tech: ["React", "Vite", "Modern CSS", "Accessibility"],
-  },
-  {
-    title: "Chicken Inn Fast Food Experience",
-    type: "Fast Food Web Platform",
-    category: "Web Apps",
-    summary:
-      "A bold, high-energy fast-food restaurant web experience built for Chicken Inn with dynamic hero banners, food showcases, and quick menu navigation.",
-    img: chickenInn,
-    link: "https://chickeninnwebsite.vercel.app/",
-    github: "https://github.com/pelagiasvare/chickeninnwebsite",
-    tech: ["React", "CSS Modules", "Responsive Design"],
   },
   {
     title: "Pelagia Portfolio — Styled Components & Vite",
@@ -118,39 +112,6 @@ const allProjects: ProjectItem[] = [
     link: "https://pelagiaportfolio.vercel.app/",
     github: "https://github.com/pelagiasvare/pelagiaportfolio",
     tech: ["React", "Vite", "Styled Components", "TypeScript"],
-  },
-  {
-    title: "AI RAG Pipeline & Document Assistant",
-    type: "AI & NLP System",
-    category: "AI & Backend",
-    summary:
-      "Retrieval-Augmented Generation pipeline built with Node.js and OpenAI: document chunking, semantic embedding generation (1536-dim), vector search, and citation synthesis.",
-    img: ragPipeline,
-    link: "https://github.com/pelagiasvare/04_Simple_RAG_Pipeline",
-    github: "https://github.com/pelagiasvare/04_Simple_RAG_Pipeline",
-    tech: ["OpenAI API", "Vector Embeddings", "Node.js", "RAG"],
-  },
-  {
-    title: "Express.js RESTful CRUD API Service",
-    type: "Backend & API Service",
-    category: "AI & Backend",
-    summary:
-      "A robust backend CRUD API built with Node.js and Express. Features custom request validation middleware, centralized error handling, and secure RESTful endpoint architecture.",
-    img: expressApi,
-    link: "https://github.com/pelagiasvare/my-express-app",
-    github: "https://github.com/pelagiasvare/my-express-app",
-    tech: ["Node.js", "Express.js", "REST Architecture", "Middleware"],
-  },
-  {
-    title: "Investment & Asset Portfolio Dashboard",
-    type: "FinTech Web App",
-    category: "Web Apps",
-    summary:
-      "A responsive financial management application built with React, featuring user asset tracking, portfolio metric visualization, and seamless API integrations.",
-    img: investmentApp,
-    link: "https://github.com/pelagiasvare/investment-app",
-    github: "https://github.com/pelagiasvare/investment-app",
-    tech: ["React", "State Management", "Data Charts", "REST API"],
   },
   {
     title: "To-Do List Task Manager",
@@ -174,42 +135,14 @@ const allProjects: ProjectItem[] = [
     github: "https://github.com/pelagiasvare/formreactjs",
     tech: ["React", "EmailJS", "Form Validation", "CSS"],
   },
-  {
-    title: "MyFurniture — Modern E-Commerce Platform",
-    type: "E-Commerce Website",
-    category: "Web Apps",
-    summary:
-      "A contemporary online shopping platform showcasing affordable home and office furniture with dynamic product categories, detailed item specs, and clean responsive design.",
-    img: furnitureApp,
-    link: "https://github.com/pelagiasvare/myfurnitewebsite",
-    github: "https://github.com/pelagiasvare/myfurnitewebsite",
-    tech: ["HTML5", "CSS3", "JavaScript", "E-Commerce UI"],
-  },
-  {
-    title: "Python Advanced Scientific Calculator",
-    type: "Python Application",
-    category: "Python & Tools",
-    summary:
-      "An interactive Python computational tool supporting standard arithmetic, powers, square roots, trigonometry, hyperbolic functions, and random generation.",
-    img: calculatorApp,
-    link: "https://github.com/pelagiasvare/createcalculator",
-    github: "https://github.com/pelagiasvare/createcalculator",
-    tech: ["Python 3", "Math Module", "CLI / Algorithms"],
-  },
-  {
-    title: "OpenWeather Live Forecast App",
-    type: "Weather Web Application",
-    category: "Web Apps",
-    summary:
-      "An asynchronous weather platform utilizing JavaScript and the OpenWeatherMap API to fetch live temperature, atmospheric conditions, and humidity for worldwide cities.",
-    img: weatherApp,
-    link: "https://github.com/pelagiasvare/weather",
-    github: "https://github.com/pelagiasvare/weather",
-    tech: ["JavaScript", "Fetch API", "OpenWeatherMap", "CSS3"],
-  },
 ];
 
-const categories: Category[] = ["All", "Web Apps", "AI & Backend", "Python & Tools"];
+const categories: Category[] = [
+  "All",
+  "Web Apps",
+  "E-Commerce & Marketplaces",
+  "Corporate & Brand",
+];
 
 function Projects() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -231,8 +164,8 @@ function Projects() {
           My Featured Projects
         </h1>
         <p className="mt-4 max-w-2xl text-base font-medium text-muted-foreground sm:text-lg">
-          Explore my complete collection of live web applications, AI systems, backend APIs, and
-          Python software with real screenshots and direct GitHub repository access.
+          Explore real-world live web applications, e-commerce marketplaces, and corporate brand
+          platforms built with modern frontend frameworks and live deployments.
         </p>
 
         {/* Category Filter Pills */}
@@ -357,8 +290,7 @@ function Projects() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-base font-semibold underline underline-offset-4 hover:text-primary transition-colors"
                 >
-                  {p.link.includes("github.com") ? "View Code" : "Live Demo"}{" "}
-                  <ExternalLink size={16} />
+                  Live Demo <ExternalLink size={16} />
                 </a>
                 <a
                   href={p.github}
