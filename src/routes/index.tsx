@@ -45,9 +45,9 @@ function Index() {
               Software Developer & Product Designer
             </h2>
             <p className="my-6 max-w-lg text-center text-base font-medium text-muted-foreground lg:text-left">
-              I am a software developer skilled in JavaScript, Python and C#, and a Scratch educator
-              who loves turning ideas into practical web and mobile solutions. Explore my latest
-              projects below.
+              I am a software developer skilled in JavaScript, Python and C#, Operations Manager at
+              CodeFam, and a passionate builder of collaborative platforms and modern web solutions.
+              Explore my latest projects below.
             </p>
             <div className="flex items-center gap-6 self-center lg:self-start">
               <Link

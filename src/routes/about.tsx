@@ -26,10 +26,10 @@ export const Route = createFileRoute("/about")({
 const communities = [
   {
     name: "CodeFam (CodeFam-Dev)",
-    role: "Active Member & Collaborator",
-    badge: "Developer Community",
+    role: "Operations Manager",
+    badge: "Operations & Leadership",
     summary:
-      "A global developer community where engineers connect, collaborate, learn, and build impactful software together. Actively participating in open-source development, collaborative sprints, and community technical initiatives.",
+      "Operations Manager at CodeFam, a global developer platform connecting software engineers worldwide. Oversee platform operations, developer collaboration initiatives, team milestone tracking, contributor workflows, and community engagement.",
     location: "Zimbabwe / Global",
     website: "https://codefam.dev/",
     github: "https://github.com/codefam-dev/codefam.dev",
@@ -90,6 +90,13 @@ const skills = [
 ];
 
 const experience = [
+  {
+    position: "Operations Manager",
+    company: "CodeFam",
+    time: "2026-Present",
+    address: "Remote / Global",
+    work: "Lead platform operations and contributor workflows for the CodeFam developer ecosystem. Coordinate team development sprints, cross-functional collaboration, and community initiatives.",
+  },
   {
     position: "Software Developer",
     company: "Uncommon.org",
@@ -166,12 +173,15 @@ function About() {
             building user-focused web and application solutions from Bulawayo, Zimbabwe.
           </p>
           <p className="my-4 font-medium">
-            I am also an experienced Scratch educator and mentor, teaching young learners
-            computational thinking, creativity and problem solving through code.
+            I serve as Operations Manager at CodeFam, directing developer platform operations and
+            collaborative team initiatives. I also contributed across both frontend and backend on
+            the Kidverse children's marketplace, and teach young learners computational thinking as
+            a Scratch educator.
           </p>
           <p className="font-medium">
-            Whether I am designing a mobile app or shipping a responsive web interface, I care about
-            accessibility, clean code and delivering impactful digital products.
+            Whether collaborating on full-stack team platforms or crafting modern brand redesign
+            concepts, I care about accessibility, clean code, and delivering impactful digital
+            products.
           </p>
         </div>
 

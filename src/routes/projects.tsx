@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Github, ExternalLink, Sparkles } from "lucide-react";
+import { Github, ExternalLink, Sparkles, Users, Palette, CheckCircle2 } from "lucide-react";
 
 // 100% Real Live Website Screenshots
 import foodieland from "@/assets/project-foodieland.png";
@@ -20,27 +20,29 @@ export const Route = createFileRoute("/projects")({
       {
         name: "description",
         content:
-          "Featured software development and product design projects by Pelagia Svare, including Foodieland, Kidverse, CodeFam, Chicken Inn, Baker's Inn, The Wattle Company, Portfolio, To-Do App, and Contact Form.",
+          "Featured software development projects by Pelagia Svare: team projects (Kidverse, CodeFam), brand redesign concepts (Chicken Inn, Baker's Inn, The Wattle Company), and web applications.",
       },
       { property: "og:title", content: "Projects — Pelagia Svare" },
       {
         property: "og:description",
         content:
-          "Explore real-world live Web Applications, E-Commerce Marketplaces, Developer Platforms, Corporate Portals, and UI Systems built by Pelagia Svare.",
+          "Explore team projects (Kidverse full-stack contributor, CodeFam operations manager), brand redesign concepts (Chicken Inn, Baker's Inn, Wattle Company), and web applications.",
       },
     ],
   }),
   component: Projects,
 });
 
-type Category =
-  "All" | "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand" | "Community & Platforms";
+type Category = "All" | "Team Projects" | "Redesign Concepts" | "Web Apps";
 
 interface ProjectItem {
   title: string;
   type: string;
-  category:
-    "Web Apps" | "E-Commerce & Marketplaces" | "Corporate & Brand" | "Community & Platforms";
+  category: "Team Projects" | "Redesign Concepts" | "Web Apps";
+  role?: string;
+  whatIBuilt?: string;
+  isTeamProject?: boolean;
+  isRedesignConcept?: boolean;
   summary: string;
   img: string;
   link: string;
@@ -55,6 +57,9 @@ const featured: ProjectItem = {
   img: foodieland,
   type: "Featured Web Application",
   category: "Web Apps",
+  role: "Solo Software Developer & Designer",
+  whatIBuilt:
+    "Architected and developed the entire frontend recipe platform with React and Vite, featuring recipe category filtering, cooking time calculation, responsive food cards, and mobile-friendly layouts.",
   link: "https://foodlide.vercel.app/",
   github: "https://github.com/pelagiasvare/Foodlide",
   tech: ["React", "Vite", "Tailwind CSS", "JavaScript"],
@@ -63,10 +68,14 @@ const featured: ProjectItem = {
 const allProjects: ProjectItem[] = [
   {
     title: "Kidverse — Children's E-Commerce & Marketplace",
-    type: "Full-Stack Marketplace Platform",
-    category: "E-Commerce & Marketplaces",
+    type: "Team Project • Full-Stack Marketplace",
+    category: "Team Projects",
+    isTeamProject: true,
+    role: "Full-Stack Contributor (Frontend & Backend)",
+    whatIBuilt:
+      "Contributed across both frontend and backend: developed responsive user-facing UI components (product browsing, categories, catalog navigation) and implemented backend integration including database models, API route handling with Supabase & Prisma ORM, and authentication workflows.",
     summary:
-      "A full-stack e-commerce and delivery marketplace for children's fashion, toys, and essentials. Features Next.js 15, React 19, Supabase, Prisma ORM, NextAuth authentication, and Cloudinary asset management.",
+      "A collaborative full-stack e-commerce and delivery marketplace for children's fashion, toys, and essentials. Built with Next.js 15, React 19, Supabase, Prisma ORM, NextAuth authentication, and Cloudinary.",
     img: kidverse,
     link: "https://kidversee.vercel.app/",
     github: "https://github.com/thembiencube08-dotcom/kidversee",
@@ -74,52 +83,78 @@ const allProjects: ProjectItem[] = [
   },
   {
     title: "CodeFam — Global Developer Community & Platform",
-    type: "Developer Community Platform",
-    category: "Community & Platforms",
+    type: "Team Project • Developer Community Platform",
+    category: "Team Projects",
+    isTeamProject: true,
+    role: "Operations Manager",
+    whatIBuilt:
+      "Served as Operations Manager at CodeFam: coordinated cross-functional developer collaboration, platform operations, team project milestones, and contributor engagement, while helping guide feature roadmaps and community technical initiatives.",
     summary:
       "A global collaborative platform where developers connect across the world, find talent, collaborate on open-source projects, post ideas, get forum help, and support each other.",
     img: codefam,
     link: "https://codefam.dev/",
     github: "https://github.com/codefam-dev/codefam.dev",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Community Platform"],
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Community Platform",
+      "Team Operations",
+    ],
   },
   {
-    title: "Chicken Inn Fast Food Experience",
-    type: "Fast Food Web Platform",
-    category: "Corporate & Brand",
+    title: "Chicken Inn — Website Redesign Concept",
+    type: "Brand Redesign Concept",
+    category: "Redesign Concepts",
+    isRedesignConcept: true,
+    role: "Concept Design & Front-End Implementation",
+    whatIBuilt:
+      "Crafted a modern brand redesign concept: restructured visual hierarchy, designed bold promotional hero banners, interactive product menu cards, and responsive navigation tailored for quick ordering flows.",
     summary:
-      "A bold, high-energy fast-food restaurant web experience built for Chicken Inn with dynamic hero banners, food showcases, and quick menu navigation.",
+      "A bold, high-energy modern fast-food restaurant website redesign concept created for Chicken Inn with dynamic hero banners, appetizing food showcases, category filters, and quick menu navigation.",
     img: chickenInn,
     link: "https://chickeninnwebsite.vercel.app/",
     github: "https://github.com/pelagiasvare/chickeninnwebsite",
-    tech: ["React", "CSS Modules", "Responsive Design", "Brand UI"],
+    tech: ["React", "CSS Modules", "Responsive Design", "Brand UI", "UI Redesign"],
   },
   {
-    title: "Baker's Inn — Fresh Bread & Bakery Platform",
-    type: "Bakery Web Platform",
-    category: "Corporate & Brand",
+    title: "Baker's Inn — Bakery Redesign Concept",
+    type: "Brand Redesign Concept",
+    category: "Redesign Concepts",
+    isRedesignConcept: true,
+    role: "Concept Design & Front-End Implementation",
+    whatIBuilt:
+      "Designed and coded a fresh bakery website redesign concept featuring inviting product categories (bread, pies, scones), recipe inspiration, interactive kid's games, and streamlined donation/tour inquiry forms.",
     summary:
-      "A warm, appetizing web experience for Baker's Inn showcasing fresh bread, pies, scones and doughnuts, with product ranges, recipes, kid's corner games, factory tour and donation requests.",
+      "A warm, appetizing website redesign concept for Baker's Inn showcasing fresh bread, bakery ranges, recipes, an interactive kid's corner, factory tour booking, and community donation requests.",
     img: bakersInn,
     link: "https://bakers-inn-react-js.vercel.app/",
     github: "https://github.com/pelagiasvare/bakersinnwebisite",
-    tech: ["HTML5", "CSS3", "JavaScript", "Responsive UI"],
+    tech: ["HTML5", "CSS3", "JavaScript", "Responsive UI", "UI Redesign"],
   },
   {
-    title: "The Wattle Company Corporate Portal",
-    type: "Corporate Website",
-    category: "Corporate & Brand",
+    title: "The Wattle Company — Corporate Redesign Concept",
+    type: "Corporate Redesign Concept",
+    category: "Redesign Concepts",
+    isRedesignConcept: true,
+    role: "Concept Design & Front-End Implementation",
+    whatIBuilt:
+      "Designed and built a corporate website redesign concept highlighting company heritage, structured industrial forestry product showcases, and a streamlined instant quote request workflow.",
     summary:
-      "Official website for The Wattle Company showcasing sustainable timber & forestry products since 1945, product categories, and instant quote requests.",
+      "A contemporary corporate website redesign concept for The Wattle Company, highlighting sustainable timber & forestry products since 1945, product categories, and instant quote requests.",
     img: wattleCompany,
     link: "https://wattlecompany-project.vercel.app/",
     github: "https://github.com/pelagiasvare/wattlecompany",
-    tech: ["React", "Vite", "Modern CSS", "Accessibility"],
+    tech: ["React", "Vite", "Modern CSS", "Accessibility", "UI Redesign"],
   },
   {
     title: "Pelagia Portfolio — Styled Components & Vite",
     type: "Personal Portfolio Platform",
     category: "Web Apps",
+    role: "Solo Software Developer",
+    whatIBuilt:
+      "Engineered portfolio architecture with Vite, TypeScript, and Styled Components, implementing modular component styling and smooth interactions.",
     summary:
       "A personal portfolio website built using Vite, TypeScript, and Styled Components to create a fast, modern, and responsive user experience with clean code architecture.",
     img: portfolioV1,
@@ -131,6 +166,9 @@ const allProjects: ProjectItem[] = [
     title: "To-Do List Task Manager",
     type: "Web Application",
     category: "Web Apps",
+    role: "Solo Software Developer",
+    whatIBuilt:
+      "Built dynamic task state management with React hooks, real-time completion counters, and an accessible dashboard layout.",
     summary:
       "An intuitive task management dashboard with metric counters for Total Tasks, Completed, and Failed tasks, rapid task addition, and clean state feedback.",
     img: todoList,
@@ -142,6 +180,9 @@ const allProjects: ProjectItem[] = [
     title: "React Contact Form & Email Integration",
     type: "Interactive Component",
     category: "Web Apps",
+    role: "Solo Software Developer",
+    whatIBuilt:
+      "Implemented client-side input validation, error handling states, and integrated EmailJS for direct inbox message transmission.",
     summary:
       "A responsive contact form interface built with React, featuring user input validation, structured layout, and seamless EmailJS integration for direct inbox delivery.",
     img: contactForm,
@@ -151,13 +192,7 @@ const allProjects: ProjectItem[] = [
   },
 ];
 
-const categories: Category[] = [
-  "All",
-  "Web Apps",
-  "E-Commerce & Marketplaces",
-  "Community & Platforms",
-  "Corporate & Brand",
-];
+const categories: Category[] = ["All", "Team Projects", "Redesign Concepts", "Web Apps"];
 
 function Projects() {
   const [activeCategory, setActiveCategory] = useState<Category>("All");
@@ -179,8 +214,8 @@ function Projects() {
           My Featured Projects
         </h1>
         <p className="mt-4 max-w-2xl text-base font-medium text-muted-foreground sm:text-lg">
-          Explore real-world live web applications, e-commerce marketplaces, and corporate brand
-          platforms built with modern frontend frameworks and live deployments.
+          Explore collaborative team projects (Kidverse, CodeFam), modern brand redesign concepts
+          (Chicken Inn, Baker's Inn, The Wattle Company), and full-featured web applications.
         </p>
 
         {/* Category Filter Pills */}
@@ -196,6 +231,8 @@ function Projects() {
                   : "border-2 border-border bg-card text-foreground hover:border-primary/60 hover:text-primary"
               }`}
             >
+              {cat === "Team Projects" && "👥 "}
+              {cat === "Redesign Concepts" && "🎨 "}
               {cat}
             </button>
           ))}
@@ -221,10 +258,28 @@ function Projects() {
             />
           </a>
           <div className="flex w-full flex-col items-start justify-between lg:w-1/2">
-            <span className="text-xl font-medium text-primary">{featured.type}</span>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <span className="text-xl font-medium text-primary">{featured.type}</span>
+              <span className="rounded-full bg-secondary/70 px-3 py-0.5 text-xs font-bold text-secondary-foreground">
+                Solo Project
+              </span>
+            </div>
             <h2 className="my-2 text-3xl font-bold sm:text-4xl">{featured.title}</h2>
             <p className="font-medium text-muted-foreground leading-relaxed">{featured.summary}</p>
-            <div className="mt-4 flex flex-wrap gap-2">
+
+            {/* Explicit Role & What Specifically Built Callout */}
+            <div className="my-4 w-full rounded-xl border border-primary/25 bg-primary/5 p-3.5 text-xs sm:text-sm">
+              <div className="flex items-center gap-1.5 font-bold text-primary mb-1">
+                <CheckCircle2 size={16} className="shrink-0" />
+                <span>My Role: {featured.role}</span>
+              </div>
+              <p className="text-foreground/90 font-medium">
+                <strong className="text-foreground">What I specifically built:</strong>{" "}
+                {featured.whatIBuilt}
+              </p>
+            </div>
+
+            <div className="mt-2 flex flex-wrap gap-2">
               {featured.tech.map((t) => (
                 <span
                   key={t}
@@ -263,29 +318,102 @@ function Projects() {
             key={p.title}
             className="relative flex w-full flex-col items-start justify-between rounded-2xl border-2 border-solid border-border bg-card p-6 shadow-[8px_8px_0_0_var(--color-secondary)] transition-all hover:-translate-y-1"
           >
-            <a
-              href={p.link}
-              target="_blank"
-              rel="noreferrer"
-              className="w-full cursor-pointer overflow-hidden rounded-lg mb-4"
-            >
-              <img
-                src={p.img}
-                alt={p.title}
-                width={1024}
-                height={700}
-                loading="lazy"
-                className="h-auto w-full object-cover transition-transform duration-500 hover:scale-105"
-              />
-            </a>
+            <div className="relative w-full overflow-hidden rounded-lg mb-4">
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noreferrer"
+                className="block w-full cursor-pointer overflow-hidden"
+              >
+                <img
+                  src={p.img}
+                  alt={p.title}
+                  width={1024}
+                  height={700}
+                  loading="lazy"
+                  className="h-auto w-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </a>
+
+              {/* Status Badges on Image */}
+              <div className="absolute top-3 left-3 flex flex-wrap gap-2">
+                {p.isTeamProject && (
+                  <span className="inline-flex items-center gap-1 rounded-md bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground shadow-md backdrop-blur-sm">
+                    <Users size={12} /> Team Project
+                  </span>
+                )}
+                {p.isRedesignConcept && (
+                  <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-2.5 py-1 text-xs font-bold text-secondary-foreground shadow-md backdrop-blur-sm">
+                    <Palette size={12} /> Redesign Concept
+                  </span>
+                )}
+              </div>
+            </div>
+
             <div className="flex w-full flex-col items-start justify-between flex-1">
-              <span className="text-sm font-semibold uppercase tracking-wider text-primary">
-                {p.type}
-              </span>
-              <h2 className="my-1 text-2xl font-bold">{p.title}</h2>
+              <div className="flex flex-wrap items-center justify-between gap-2 w-full">
+                <span className="text-sm font-semibold uppercase tracking-wider text-primary">
+                  {p.type}
+                </span>
+                {p.isTeamProject && (
+                  <span className="text-xs font-bold text-primary bg-primary/10 border border-primary/25 rounded-md px-2 py-0.5">
+                    Team Collaboration
+                  </span>
+                )}
+                {p.isRedesignConcept && (
+                  <span className="text-xs font-bold text-secondary-foreground bg-secondary/40 border border-secondary/50 rounded-md px-2 py-0.5">
+                    Brand Concept
+                  </span>
+                )}
+              </div>
+
+              <h2 className="my-1.5 text-2xl font-bold leading-tight">{p.title}</h2>
               <p className="my-2 text-sm font-normal text-muted-foreground leading-relaxed">
                 {p.summary}
               </p>
+
+              {/* Explicit Role & What Specifically Built Callout */}
+              {p.role && (
+                <div
+                  className={`my-3 w-full rounded-xl p-3.5 text-xs leading-relaxed border ${
+                    p.isTeamProject
+                      ? "border-primary/30 bg-primary/5"
+                      : p.isRedesignConcept
+                        ? "border-secondary/60 bg-secondary/15"
+                        : "border-border bg-muted/40"
+                  }`}
+                >
+                  <div className="flex items-center gap-1.5 font-bold mb-1.5">
+                    {p.isTeamProject ? (
+                      <Users size={14} className="text-primary shrink-0" />
+                    ) : p.isRedesignConcept ? (
+                      <Palette size={14} className="text-primary shrink-0" />
+                    ) : (
+                      <CheckCircle2 size={14} className="text-primary shrink-0" />
+                    )}
+                    <span className={p.isTeamProject ? "text-primary" : "text-foreground"}>
+                      {p.isTeamProject
+                        ? "My Role on the Team:"
+                        : p.isRedesignConcept
+                          ? "Concept Scope:"
+                          : "Role:"}{" "}
+                      <span className="underline underline-offset-2">{p.role}</span>
+                    </span>
+                  </div>
+                  {p.whatIBuilt && (
+                    <p className="text-foreground/90 font-medium">
+                      <strong className="text-foreground">
+                        {p.isTeamProject
+                          ? "What I specifically built:"
+                          : p.isRedesignConcept
+                            ? "Design & build scope:"
+                            : "What I built:"}
+                      </strong>{" "}
+                      {p.whatIBuilt}
+                    </p>
+                  )}
+                </div>
+              )}
 
               <div className="mt-2 mb-4 flex flex-wrap gap-1.5">
                 {p.tech.map((t) => (
@@ -305,7 +433,8 @@ function Projects() {
                   rel="noreferrer"
                   className="inline-flex items-center gap-1.5 text-base font-semibold underline underline-offset-4 hover:text-primary transition-colors"
                 >
-                  Live Demo <ExternalLink size={16} />
+                  {p.isRedesignConcept ? "View Concept Live" : "Live Demo"}{" "}
+                  <ExternalLink size={16} />
                 </a>
                 <a
                   href={p.github}

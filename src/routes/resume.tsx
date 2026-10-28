@@ -222,6 +222,20 @@ function Resume() {
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-col">
                     <div className="flex items-baseline justify-between gap-2 flex-wrap">
+                      <h3 className="text-lg font-bold text-foreground">Operations Manager</h3>
+                      <span className="text-xs font-semibold text-muted-foreground">
+                        CodeFam • 2026 - Present
+                      </span>
+                    </div>
+                    <p className="mt-1.5 text-sm font-medium leading-relaxed text-foreground/90">
+                      Direct developer platform operations, team project coordination, contributor
+                      workflows, and community initiatives for a global network of software
+                      engineers.
+                    </p>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <div className="flex items-baseline justify-between gap-2 flex-wrap">
                       <h3 className="text-lg font-bold text-foreground">Software Developer</h3>
                       <span className="text-xs font-semibold text-muted-foreground">
                         Uncommon.org • 2026 - Present
@@ -337,18 +351,7 @@ function Resume() {
                 </div>
                 <ul className="flex flex-col gap-3 text-sm font-medium text-foreground/90 list-disc pl-5">
                   <li>
-                    Built a home services platform connecting homeowners with trusted service
-                    providers during Product Design training. Conducted user research, created
-                    wireframes and prototypes, and designed user-friendly workflows.
-                  </li>
-                  <li>
-                    Built a responsive portfolio website during Software Development training,
-                    focusing on accessibility, responsive design and clean, user-friendly
-                    interfaces.
-                  </li>
-                  <li>
-                    Active member and collaborator in the <strong>CodeFam</strong> global developer
-                    community (
+                    <strong>Operations Manager</strong> at <strong>CodeFam</strong> (
                     <a
                       href="https://codefam.dev"
                       target="_blank"
@@ -357,7 +360,36 @@ function Resume() {
                     >
                       codefam.dev
                     </a>
-                    ), contributing to open-source software and collaborative development.
+                    ): Directing platform operations, cross-team developer collaboration, and
+                    contributor workflows across the global developer community.
+                  </li>
+                  <li>
+                    <strong>Full-Stack Contributor</strong> on <strong>Kidverse</strong> (
+                    <a
+                      href="https://kidversee.vercel.app"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="underline hover:text-primary transition-colors"
+                    >
+                      kidversee.vercel.app
+                    </a>
+                    ): Built responsive frontend user interfaces and implemented backend features
+                    with Next.js, Supabase, and Prisma ORM.
+                  </li>
+                  <li>
+                    Created modern brand website redesign concepts for <strong>Chicken Inn</strong>,{" "}
+                    <strong>Baker's Inn</strong>, and <strong>The Wattle Company</strong>, focusing
+                    on responsive UI systems and engaging user flows.
+                  </li>
+                  <li>
+                    Built a home services platform connecting homeowners with trusted service
+                    providers during Product Design training. Conducted user research, created
+                    wireframes and prototypes, and designed user-friendly workflows.
+                  </li>
+                  <li>
+                    Built a responsive portfolio website during Software Development training,
+                    focusing on accessibility, responsive design and clean, user-friendly
+                    interfaces.
                   </li>
                 </ul>
               </section>
